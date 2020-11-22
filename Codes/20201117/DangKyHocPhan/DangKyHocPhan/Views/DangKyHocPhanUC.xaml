@@ -29,7 +29,7 @@
                 <ComboBoxItem IsSelected="True">Học kì 2 (2020-2021)</ComboBoxItem>
                 <ComboBoxItem>Học kì 1 (2020-2021)</ComboBoxItem>
                 <ComboBoxItem>Học kì 3 (2019-2020)</ComboBoxItem>
-                <ComboBoxItem>Học kì 2 (2019-2020)</ComboBoxItem>
+                <ComboBoxItem>Học kì 2 (2019-2020)</ComboBoxItem> 
                 <ComboBoxItem>Học kì 1 (2019-2020)</ComboBoxItem>
                 <ComboBoxItem>Học kì 3 (2018-2019)</ComboBoxItem>
                 <ComboBoxItem>Học kì 2 (2018-2019)</ComboBoxItem>

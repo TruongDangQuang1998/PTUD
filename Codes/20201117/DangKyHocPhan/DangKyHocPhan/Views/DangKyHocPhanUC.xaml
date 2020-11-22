@@ -1,0 +1,108 @@
+﻿<UserControl x:Class="DangKyHocPhan.Views.DangKyHocPhanUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DangKyHocPhan.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin=" 250 0 0 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <!--<ColumnDefinition/>-->
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" HorizontalAlignment="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Học kì:" HorizontalAlignment="Right" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
+            <!--<ComboBox  Grid.Column="1" Width="200" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Bottom">
+                <ComboBoxItem IsSelected="True">Học kì 2 (2020-2021)</ComboBoxItem>
+                <ComboBoxItem>Học kì 1 (2020-2021)</ComboBoxItem>
+                <ComboBoxItem>Học kì 3 (2019-2020)</ComboBoxItem>
+                <ComboBoxItem>Học kì 2 (2019-2020)</ComboBoxItem>
+                <ComboBoxItem>Học kì 1 (2019-2020)</ComboBoxItem>
+                <ComboBoxItem>Học kì 3 (2018-2019)</ComboBoxItem>
+                <ComboBoxItem>Học kì 2 (2018-2019)</ComboBoxItem>
+                <ComboBoxItem>Học kì 1 (2018-2019)</ComboBoxItem>
+            </ComboBox>-->
+
+
+            <ComboBox Grid.Column="1" Width="200" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Bottom"  
+                  ItemsSource="{Binding HocKiList}"    
+                  SelectedItem="{Binding HocKiSelect}" />
+        </Grid>
+        
+
+        <!--list mon-->
+        <ListView Grid.Row="1">
+            <ListView  Name="lvMonHoc">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="STT" Width="100" DisplayMemberBinding="{Binding Stt}" />
+                        <GridViewColumn  Header="Mã HP" Width="200" DisplayMemberBinding="{Binding MaHP}" />
+                        <GridViewColumn Header="Tên môn học" Width="200" DisplayMemberBinding="{Binding TenMonHoc}" />
+                        <GridViewColumn Header="Số TC" Width="200" DisplayMemberBinding="{Binding SoTC}" />
+                        <GridViewColumn Header="Học phần: học trước(a), tiên quyết(b), song hành(c)" Width="200" DisplayMemberBinding="{Binding TienQuyet}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </ListView>
+        
+        <!--List hoc phan-->
+        <ListView Grid.Row="2">
+            <ListView Margin="10" Name="lvHocPhan">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="STT" Width="100" DisplayMemberBinding="{Binding Stt}" />
+                        <GridViewColumn Header="Mã LHP" Width="200" DisplayMemberBinding="{Binding MaLHP}" />
+                        <GridViewColumn Header="Tên Lớp Học Phần" Width="200" DisplayMemberBinding="{Binding TenLopHocPhan}" />
+                        <GridViewColumn Header="Lớp" Width="200" DisplayMemberBinding="{Binding Lop}" />
+                        <GridViewColumn Header="Sỉ số tối đa" Width="200" DisplayMemberBinding="{Binding SiSoToiDa}" />
+                        <GridViewColumn Header="Đã đăng ký" Width="200" DisplayMemberBinding="{Binding DaDangKy}" />
+                        <GridViewColumn Header="Trang thái" Width="200" DisplayMemberBinding="{Binding TrangThai}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </ListView>
+
+
+
+        <Grid Grid.Row="3" HorizontalAlignment="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Nhóm:" HorizontalAlignment="Right" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
+            <ComboBox Grid.Column="1" Width="100" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Bottom" 
+                      ItemsSource="{Binding NhomList}"    
+                  SelectedItem="{Binding NhomSelect}" />
+        </Grid>
+        <!--thông tin môn học-->
+        <ListView Grid.Row="4">
+            <ListView Margin="10" Name="lvChiIiet">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="STT" Width="100" DisplayMemberBinding="{Binding Stt}" />
+                        <GridViewColumn Header="Lịch học" Width="200" DisplayMemberBinding="{Binding LichHoc}" />
+                        <GridViewColumn Header="Nhóm TH" Width="150" DisplayMemberBinding="{Binding NhomTH}" />
+                        <GridViewColumn Header="Phòng" Width="150" DisplayMemberBinding="{Binding Phong}" />
+                        <GridViewColumn Header="Giảng viên" Width="150" DisplayMemberBinding="{Binding GiangVien}" />
+                        <GridViewColumn Header="Thời Gian" Width="150" DisplayMemberBinding="{Binding ThoiGian}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </ListView>
+        <Button Content="{Binding Titlee}" Grid.Row="5" Width="200"/>
+        <!--<Button Content="Đăng ký" Grid.Row="5" Width="200"/>-->
+    </Grid>
+</UserControl>

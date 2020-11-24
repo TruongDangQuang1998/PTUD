@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DangKyHocPhan.Models
 {
-    public class ChiTiet
+    public class ChiTietModel
     {
         public int Stt { get; set; }
         public string LichHoc { get; set; }

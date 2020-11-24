@@ -63,10 +63,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\ChiTiet.cs" />
-    <Compile Include="Models\ChuongTrinhKhung.cs" />
-    <Compile Include="Models\HocPhan.cs" />
-    <Compile Include="Models\MonHoc.cs" />
+    <Compile Include="Models\ChiTietModel.cs" />
+    <Compile Include="Models\ChuongTrinhKhungModel.cs" />
+    <Compile Include="Models\HocPhanModel.cs" />
+    <Compile Include="Models\MonHocModel.cs" />
     <Compile Include="ViewModels\BaseViewModel .cs" />
     <Compile Include="ViewModels\DangKyHocPhanUCModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

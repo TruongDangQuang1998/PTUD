@@ -40,9 +40,14 @@
             </EventTrigger>
         </Window.Triggers>
     <Grid>
-        
-        <Grid>
-            <Grid x:Name="GridBackground" Background="#55313131" Opacity="0"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <!--<Grid x:Name="GridBackground" Background="#55313131" Opacity="0"/>-->
+            <Grid x:Name="GridBackground"  Opacity="0"/>
 
             <Button x:Name="ButtonOpen" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Width="40" Height="40" Padding="0">
                 <materialDesign:PackIcon Kind="Menu" Height="40" Width="40" Foreground="#FF313131"/>
@@ -57,7 +62,7 @@
                     </TransformGroup>
                 </Grid.RenderTransform>
                 <StackPanel>
-                    <Image Height="140" Source="/Images/unnamed.png" Stretch="Fill"/>
+                    <Image Height="140"  Source="/Images/unnamed.png" Stretch="Fill"/>
                     <ListView Foreground="#FF313131" FontFamily="Champagne &amp; Limousines" FontSize="18">
                         <ListViewItem Height="45" Padding="0">
                             <StackPanel Orientation="Horizontal" Margin="10 0">
@@ -83,6 +88,12 @@
                                 <TextBlock Text="Chương Trình Khung" Margin="10"/>
                             </StackPanel>
                         </ListViewItem>
+                        <ListViewItem Height="45" Padding="0">
+                            <StackPanel Orientation="Horizontal" Margin="10 0">
+                                <materialDesign:PackIcon Kind="Logout" Width="20" Height="20" Foreground="#FF0000" Margin="5" VerticalAlignment="Center"/>
+                                <TextBlock Text="Đăng Xuất" Margin="10"/>
+                            </StackPanel>
+                        </ListViewItem>
                         <!--<ListViewItem Height="45" Padding="0">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
                             <materialDesign:PackIcon Kind="StarCircle" Width="20" Height="20" Foreground="#FFE6A701" Margin="5" VerticalAlignment="Center"/>
@@ -103,8 +114,8 @@
 
             </Grid>
         </Grid>
-        <!--<local1:DangKyHocPhanUC Grid.Row="1" Margin=" 0 50 0 0" />-->
-        <local1:DangKyHocPhanUC Grid.Row="1" Margin=" 0 50 0 0" />
+        <!--<local1:DangKyHocPhanUC Grid.Row="1" Grid.Column="1" Margin=" 0 0 0 0" />-->
+        <local1:ThongTinSinhVienUC Grid.Row="1" Grid.Column="1" Margin=" 0 0 0 0" />
 
     </Grid>
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DangKyHocPhan.Models
 {
-    public class ChuongTrinhKhung
+    public class ChuongTrinhKhungModel
     {
         public int Stt { get; set; }
         public string MaMonHoc { get; set; }

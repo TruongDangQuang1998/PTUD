@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DangKyHocPhan.Models
 {
-    public class HocPhan
+    public class HocPhanModel
     {
         public int Stt { get; set; }
         public string MaLHP { get; set; }

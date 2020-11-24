@@ -6,8 +6,15 @@
              xmlns:local="clr-namespace:DangKyHocPhan.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin=" 250 0 0 0">
+    <Grid Margin=" 0 0 0 0">
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -19,90 +26,126 @@
             <ColumnDefinition/>
             <!--<ColumnDefinition/>-->
         </Grid.ColumnDefinitions>
-        <Grid Grid.Row="0" HorizontalAlignment="Left">
+
+
+        <TextBlock Grid.Row="0" Foreground="#F57B1E" Text="ĐĂNG KÝ HỌC PHẦN" HorizontalAlignment="Center"  FontWeight="Bold" FontSize="25" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="3" Margin="0  0 0 0"/>
+        <Grid Grid.Row="1" HorizontalAlignment="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Học kì:" HorizontalAlignment="Right" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
-            <!--<ComboBox  Grid.Column="1" Width="200" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Bottom">
-                <ComboBoxItem IsSelected="True">Học kì 2 (2020-2021)</ComboBoxItem>
-                <ComboBoxItem>Học kì 1 (2020-2021)</ComboBoxItem>
-                <ComboBoxItem>Học kì 3 (2019-2020)</ComboBoxItem>
-                <ComboBoxItem>Học kì 2 (2019-2020)</ComboBoxItem> 
-                <ComboBoxItem>Học kì 1 (2019-2020)</ComboBoxItem>
-                <ComboBoxItem>Học kì 3 (2018-2019)</ComboBoxItem>
-                <ComboBoxItem>Học kì 2 (2018-2019)</ComboBoxItem>
-                <ComboBoxItem>Học kì 1 (2018-2019)</ComboBoxItem>
-            </ComboBox>-->
-
-
-            <ComboBox Grid.Column="1" Width="200" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Bottom"  
+            <TextBlock Grid.Row="1" Text="Học kì:" HorizontalAlignment="Right" FontWeight="Bold" FontSize="18" VerticalAlignment="Bottom" Margin="0  0 10 5"/>           
+            <ComboBox Grid.Column="1" Grid.Row="1" Width="200" HorizontalAlignment="Left" FontSize="18" VerticalAlignment="Bottom"  
                   ItemsSource="{Binding HocKiList}"    
                   SelectedItem="{Binding HocKiSelect}" />
         </Grid>
         
-
+        <TextBlock Grid.Row="2" Foreground="#44AECE" Text="MÔN HỌC PHẦN ĐANG CHỜ ĐĂNG KÝ" HorizontalAlignment="Center"  FontWeight="Bold" FontSize="18" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="3" Margin="0  0 0 0"/>
+        
         <!--list mon-->
-        <ListView Grid.Row="1">
-            <ListView  Name="lvMonHoc">
+
+        <DataGrid Grid.Row="3"  AutoGenerateColumns="False" IsReadOnly="True"  Margin="0 10 0 10" Name="lvMonHoc" ItemsSource="{Binding MonHocList}" SelectedItem="{Binding MonHocSelected}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="STT" Width="60" Binding="{Binding Stt}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Mã HP" Width="200" Binding="{Binding MaHP}"/>
+                <DataGridTextColumn Header="Tên môn học" Width="200" Binding="{Binding TenMonHoc}" />
+                <DataGridTextColumn Header="Số TC" Width="200" Binding="{Binding SoTC}" />
+                <DataGridTextColumn Header="Môn điều kiện"  Width="200" Binding="{Binding TienQuyet}">
+                    
+                </DataGridTextColumn>
+                                    
+                
+                
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+        <!--<ListView Grid.Row="3" >
+            <ListView  Name="lvMonHoc" ItemsSource="{Binding MonHocList}" SelectedItem="{Binding MonHocSelected}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="STT" Width="100" DisplayMemberBinding="{Binding Stt}" />
-                        <GridViewColumn  Header="Mã HP" Width="200" DisplayMemberBinding="{Binding MaHP}" />
+                        <GridViewColumn Header="Mã HP" Width="200" DisplayMemberBinding="{Binding MaHP}" />
                         <GridViewColumn Header="Tên môn học" Width="200" DisplayMemberBinding="{Binding TenMonHoc}" />
                         <GridViewColumn Header="Số TC" Width="200" DisplayMemberBinding="{Binding SoTC}" />
                         <GridViewColumn Header="Học phần: học trước(a), tiên quyết(b), song hành(c)" Width="200" DisplayMemberBinding="{Binding TienQuyet}" />
                     </GridView>
                 </ListView.View>
             </ListView>
-        </ListView>
+        </ListView>-->
         
+        <TextBlock Grid.Row="4" Foreground="#44AECE" Text="LỚP HỌC PHẦN CHỜ ĐĂNG KÝ" HorizontalAlignment="Center"  FontWeight="Bold" FontSize="18" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="3" Margin="0  0 0 0"/>
+
         <!--List hoc phan-->
-        <ListView Grid.Row="2">
-            <ListView Margin="10" Name="lvHocPhan">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="STT" Width="100" DisplayMemberBinding="{Binding Stt}" />
-                        <GridViewColumn Header="Mã LHP" Width="200" DisplayMemberBinding="{Binding MaLHP}" />
-                        <GridViewColumn Header="Tên Lớp Học Phần" Width="200" DisplayMemberBinding="{Binding TenLopHocPhan}" />
-                        <GridViewColumn Header="Lớp" Width="200" DisplayMemberBinding="{Binding Lop}" />
-                        <GridViewColumn Header="Sỉ số tối đa" Width="200" DisplayMemberBinding="{Binding SiSoToiDa}" />
-                        <GridViewColumn Header="Đã đăng ký" Width="200" DisplayMemberBinding="{Binding DaDangKy}" />
-                        <GridViewColumn Header="Trang thái" Width="200" DisplayMemberBinding="{Binding TrangThai}" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </ListView>
+        <DataGrid Grid.Row="5"  AutoGenerateColumns="False" IsReadOnly="True"  Margin="0 10 0 10" Name="lvHocPhan" ItemsSource="{Binding HocPhanList}" SelectedItem="{Binding HocPhanSelected}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="STT" Width="60" Binding="{Binding Stt}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Mã LHP" Width="180" Binding="{Binding MaLHP}"/>
+                <DataGridTextColumn Header="Tên Lớp Học Phần" Width="180" Binding="{Binding TenLopHocPhan}" />
+                <DataGridTextColumn Header="Lớp" Width="119" Binding="{Binding Lop}" />
+                <DataGridTextColumn Header="Sỉ số tối đa" Width="100" Binding="{Binding SiSoToiDa}" />
+                <DataGridTextColumn Header="Đã đăng ký" Width="100" Binding="{Binding DaDangKy}" />
+                <DataGridTextColumn Header="Trang thái" Width="190" Binding="{Binding TrangThai}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        
 
-
-
-        <Grid Grid.Row="3" HorizontalAlignment="Left">
+        <Grid Grid.Row="6" HorizontalAlignment="Left">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Nhóm:" HorizontalAlignment="Right" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
-            <ComboBox Grid.Column="1" Width="100" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Bottom" 
-                      ItemsSource="{Binding NhomList}"    
-                  SelectedItem="{Binding NhomSelect}" />
+            <TextBlock Text="Nhóm:" HorizontalAlignment="Right" FontWeight="Bold" FontSize="18" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
+            <ComboBox Grid.Column="1" Width="100" HorizontalAlignment="Left" FontSize="18" VerticalAlignment="Bottom" 
+                      ItemsSource="{Binding NhomTHList}"    
+                  SelectedItem="{Binding NhomTHSelect}" />
         </Grid>
+        <TextBlock Grid.Row="7" Foreground="#44AECE" Text="CHI TIẾT LỚP HỌC PHẦN" HorizontalAlignment="Center"  FontWeight="Bold" FontSize="18" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="3" Margin="0  0 0 0"/>
         <!--thông tin môn học-->
-        <ListView Grid.Row="4">
-            <ListView Margin="10" Name="lvChiIiet">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="STT" Width="100" DisplayMemberBinding="{Binding Stt}" />
-                        <GridViewColumn Header="Lịch học" Width="200" DisplayMemberBinding="{Binding LichHoc}" />
-                        <GridViewColumn Header="Nhóm TH" Width="150" DisplayMemberBinding="{Binding NhomTH}" />
-                        <GridViewColumn Header="Phòng" Width="150" DisplayMemberBinding="{Binding Phong}" />
-                        <GridViewColumn Header="Giảng viên" Width="150" DisplayMemberBinding="{Binding GiangVien}" />
-                        <GridViewColumn Header="Thời Gian" Width="150" DisplayMemberBinding="{Binding ThoiGian}" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </ListView>
-        <Button Content="{Binding Titlee}" Grid.Row="5" Width="200"/>
+
+        <DataGrid Grid.Row="8"  AutoGenerateColumns="False"  Margin="0 10 0 10"  IsReadOnly="True" 
+                  ItemsSource="{Binding ChiTietList}" SelectedItem="{Binding ChiTietSelected}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="STT" Width="60" Binding="{Binding Stt}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Lịch học" Width="150" Binding="{Binding LichHoc}"/>
+                <DataGridTextColumn Header="Nhóm TH" Width="100" Binding="{Binding NhomTH}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Phòng" Width="100" Binding="{Binding Phong}" />
+                <DataGridTextColumn Header="Giảng viên" Width="250" Binding="{Binding GiangVien}" />
+                <DataGridTextColumn Header="Thời Gian" Width="200" Binding="{Binding ThoiGian}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Đăng Ký" Margin="0 20 0 0"   Grid.Row="9" Width="200"/>
         <!--<Button Content="Đăng ký" Grid.Row="5" Width="200"/>-->
     </Grid>
 </UserControl>

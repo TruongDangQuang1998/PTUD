@@ -68,7 +68,9 @@
     <Compile Include="Models\HocPhanModel.cs" />
     <Compile Include="Models\MonHocModel.cs" />
     <Compile Include="ViewModels\BaseViewModel .cs" />
+    <Compile Include="ViewModels\ChuongTrinhKhungUCModel.cs" />
     <Compile Include="ViewModels\DangKyHocPhanUCModel.cs" />
+    <Compile Include="ViewModels\LoginModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\ChuongTrinhKhungUC.xaml.cs">
       <DependentUpon>ChuongTrinhKhungUC.xaml</DependentUpon>

@@ -142,7 +142,7 @@ namespace DangKyHocPhan.ViewModels
             hocPhans.Add(new HocPhanModel() { Stt = 2, MaLHP = "234569", TenLopHocPhan = "Lop234", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
             hocPhans.Add(new HocPhanModel() { Stt = 3, MaLHP = "345678", TenLopHocPhan = "Lop345", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
             HocPhanList = hocPhans;
-
+            
             ObservableCollection<ChiTietModel> chiTiets = new ObservableCollection<ChiTietModel>();
             chiTiets.Add(new ChiTietModel() { Stt = 1, GiangVien = "Nguyễn Văn A", LichHoc = "LT-Thứ 2 (T6-T8)", NhomTH = "", Phong = "A1.1", ThoiGian = "15/08/2020-15/11/2020" });
             chiTiets.Add(new ChiTietModel() { Stt = 2, GiangVien = "Nguyễn Văn A", LichHoc = "TH-Thứ 4 (T1-T6)", NhomTH = "1", Phong = "B11.1", ThoiGian = "15/08/2020-15/11/2020" });
@@ -150,10 +150,10 @@ namespace DangKyHocPhan.ViewModels
             ChiTietList = chiTiets;
 
             var list2 = new ObservableCollection<string>();
-            liststring.Add("1");
-            liststring.Add("2");
-            NhomTHList = liststring;
-            NhomTHSelect = liststring.FirstOrDefault();
+            list2.Add("1");
+            list2.Add("2");
+            NhomTHList = list2;
+            NhomTHSelect = list2.FirstOrDefault();
         }
 
 

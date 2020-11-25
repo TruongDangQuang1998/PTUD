@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace DangKyHocPhan.ViewModels
@@ -19,10 +20,21 @@ namespace DangKyHocPhan.ViewModels
             //LoadedWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
             //{
             //    Isloaded = true;
-            //    LoginWD loginWindow = new LoginWD();
-            //    loginWindow.ShowDialog();
+                //LoginWD loginWindow = new LoginWD();
+                //loginWindow.ShowDialog();
             //}
             //  );
+        }
+        private string _menuSelect;
+        public string MenuSelect
+        {
+            get { return _menuSelect; }
+            set
+            {
+                //var menuSelect = value.  ;
+                _menuSelect = value ;
+                OnPropertyChanged("MenuSelect");
+            }
         }
     }
 }

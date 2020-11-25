@@ -45,8 +45,19 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0.2*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0">
-            <!--<Grid x:Name="GridBackground" Background="#55313131" Opacity="0"/>-->
+        
+        <!--GiangVien-->
+        <Grid Grid.Column="0" > 
+            <!--<Grid.Style>
+                <Style TargetType="{x:Type Grid}">
+                    <Setter Property="Visibility" Value="Hidden"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding GiangVienSingVien}" Value="GiangVien">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>-->
             <Grid x:Name="GridBackground"  Opacity="0"/>
 
             <Button x:Name="ButtonOpen" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Width="40" Height="40" Padding="0">
@@ -63,11 +74,11 @@
                 </Grid.RenderTransform>
                 <StackPanel>
                     <Image Height="140"  Source="/Images/unnamed.png" Stretch="Fill"/>
-                    <ListView Foreground="#FF313131" FontFamily="Champagne &amp; Limousines" FontSize="18">
+                    <ListView Foreground="#FF313131" SelectedItem="{Binding MenuSelect}" FontFamily="Champagne &amp; Limousines" FontSize="18">
                         <ListViewItem Height="45" Padding="0">
                             <StackPanel Orientation="Horizontal" Margin="10 0">
                                 <materialDesign:PackIcon Kind="Account" Width="20" Height="20" Foreground="CadetBlue" Margin="5" VerticalAlignment="Center"/>
-                                <TextBlock Text="Thông tin Sinh viên" Margin="10"/>
+                                <TextBlock Text="Thông tin Tài khoản" Margin="10"/>
                             </StackPanel>
                         </ListViewItem>
                         <ListViewItem Height="45" Padding="0">
@@ -90,22 +101,10 @@
                         </ListViewItem>
                         <ListViewItem Height="45" Padding="0">
                             <StackPanel Orientation="Horizontal" Margin="10 0">
-                                <materialDesign:PackIcon Kind="Logout" Width="20" Height="20" Foreground="#FF0000" Margin="5" VerticalAlignment="Center"/>
-                                <TextBlock Text="Đăng Xuất" Margin="10"/>
+                                <materialDesign:PackIcon Kind="Logout" Width="20"  Height="20" Foreground="#FF0000" Margin="5" VerticalAlignment="Center"/>
+                                <TextBlock Text="Đăng Xuất" Margin="10" />
                             </StackPanel>
                         </ListViewItem>
-                        <!--<ListViewItem Height="45" Padding="0">
-                        <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="StarCircle" Width="20" Height="20" Foreground="#FFE6A701" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Premium Subscription" Margin="10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="45" Padding="0">
-                        <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="Settings" Width="20" Height="20" Foreground="#FF0069C1" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Settings" Margin="10"/>
-                        </StackPanel>
-                    </ListViewItem>-->
                     </ListView>
                 </StackPanel>
                 <Button x:Name="ButtonClose" Foreground="Black"  HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Width="30" Height="30" Padding="0">
@@ -114,9 +113,23 @@
 
             </Grid>
         </Grid>
-        <!--<local1:DangKyHocPhanUC Grid.Row="1" Grid.Column="1" Margin=" 0 0 0 0" />-->
-        <local1:ThongTinSinhVienUC Grid.Row="1" Grid.Column="1" Margin=" 0 0 0 0" />
+        
+        
+        
+        
+        
+        <local1:DangKyHocPhanUC Grid.Row="1" Grid.Column="1" Margin=" 0 0 0 0" />
+        <!--<local1:ThongTinSinhVienUC Grid.Row="1" Grid.Column="1" Margin=" 0 0 0 0" />-->
+        <!--<local1:ChuongTrinhKhungUC Grid.Row="1" Grid.Column="1" Margin=" 0 0 0 0" />-->
+        <!--<local1:LichHocUC Grid.Row="1" Grid.Column="1" Margin=" 0 0 0 0" />-->
 
     </Grid>
+    <!--add lich hpc vao list view
+
+
+
+đối tượng
+chức năng
+nhiệm vụ-->
 
 </Window>

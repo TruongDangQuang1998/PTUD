@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DangKyHocPhan.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace DangKyHocPhan.Views
         public LoginWD()
         {
             InitializeComponent();
+            this.DataContext = new LoginModel();
         }
     }
 }

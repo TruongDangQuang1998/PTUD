@@ -9,105 +9,190 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Kì 1:" Grid.Row="0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
-        <ListView Grid.Row="1" >
-            <ListView Margin="10" Name="lvKi1">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="STT" Width="100" DisplayMemberBinding="{Binding Stt}" />
-                        <GridViewColumn Header="Mã Môn Học" Width="200" DisplayMemberBinding="{Binding MaMonHoc}" />
-                        <GridViewColumn Header="Tên Môn Học" Width="150" DisplayMemberBinding="{Binding TenMonHoc}" />
-                        <GridViewColumn Header="Tiên Quyết" Width="150" DisplayMemberBinding="{Binding TienQuyet}" />
-                        <GridViewColumn Header="Số tín chỉ" Width="150" DisplayMemberBinding="{Binding SoTC}" />
-                        <GridViewColumn Header="Số tín chỉ LT" Width="150" DisplayMemberBinding="{Binding SoTCLT}" />
-                        <GridViewColumn Header="Số tín chỉ TH" Width="150" DisplayMemberBinding="{Binding SoTCTH}" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </ListView>
-        <TextBlock Text="Kì 2:" Grid.Row="2" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
-        <ListView Grid.Row="3" >
-            <ListView Margin="10" Name="lvKi2">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="STT" Width="100" DisplayMemberBinding="{Binding Stt}" />
-                        <GridViewColumn Header="Mã Môn Học" Width="200" DisplayMemberBinding="{Binding MaMonHoc}" />
-                        <GridViewColumn Header="Tên Môn Học" Width="150" DisplayMemberBinding="{Binding TenMonHoc}" />
-                        <GridViewColumn Header="Tiên Quyết" Width="150" DisplayMemberBinding="{Binding TienQuyet}" />
-                        <GridViewColumn Header="Số tín chỉ" Width="150" DisplayMemberBinding="{Binding SoTC}" />
-                        <GridViewColumn Header="Số tín chỉ LT" Width="150" DisplayMemberBinding="{Binding SoTCLT}" />
-                        <GridViewColumn Header="Số tín chỉ TH" Width="150" DisplayMemberBinding="{Binding SoTCTH}" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </ListView>
-        <TextBlock Text="Kì 3:" Grid.Row="4" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
-        <ListView Grid.Row="5" >
-            <ListView Margin="10" Name="lvKi3">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="STT" Width="100" DisplayMemberBinding="{Binding Stt}" />
-                        <GridViewColumn Header="Mã Môn Học" Width="200" DisplayMemberBinding="{Binding MaMonHoc}" />
-                        <GridViewColumn Header="Tên Môn Học" Width="150" DisplayMemberBinding="{Binding TenMonHoc}" />
-                        <GridViewColumn Header="Tiên Quyết" Width="150" DisplayMemberBinding="{Binding TienQuyet}" />
-                        <GridViewColumn Header="Số tín chỉ" Width="150" DisplayMemberBinding="{Binding SoTC}" />
-                        <GridViewColumn Header="Số tín chỉ LT" Width="150" DisplayMemberBinding="{Binding SoTCLT}" />
-                        <GridViewColumn Header="Số tín chỉ TH" Width="150" DisplayMemberBinding="{Binding SoTCTH}" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </ListView>
-        <TextBlock Text="Kì 4:" Grid.Row="6" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
-        <ListView Grid.Row="7" >
-            <ListView Margin="10" Name="lvKi5">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="STT" Width="100" DisplayMemberBinding="{Binding Stt}" />
-                        <GridViewColumn Header="Mã Môn Học" Width="200" DisplayMemberBinding="{Binding MaMonHoc}" />
-                        <GridViewColumn Header="Tên Môn Học" Width="150" DisplayMemberBinding="{Binding TenMonHoc}" />
-                        <GridViewColumn Header="Tiên Quyết" Width="150" DisplayMemberBinding="{Binding TienQuyet}" />
-                        <GridViewColumn Header="Số tín chỉ" Width="150" DisplayMemberBinding="{Binding SoTC}" />
-                        <GridViewColumn Header="Số tín chỉ LT" Width="150" DisplayMemberBinding="{Binding SoTCLT}" />
-                        <GridViewColumn Header="Số tín chỉ TH" Width="150" DisplayMemberBinding="{Binding SoTCTH}" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </ListView>
-        <TextBlock Text="Kì 5:" Grid.Row="8" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
-        
-        <TextBlock Text="Kì 6:" Grid.Row="10" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
-        
-        <TextBlock Text="Kì 7:" Grid.Row="12" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
-        
-        <TextBlock Text="Kì 8:" Grid.Row="14" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
+        <TextBlock Grid.Row="0" Foreground="#F57B1E" Text="CHƯƠNG TRÌNH KHUNG" HorizontalAlignment="Center"  FontWeight="Bold" FontSize="25" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="3" Margin="0  0 0 0"/>
+        <ScrollViewer Grid.Row="1">
+            <Grid >
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Học kì 1:" Grid.Row="0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
+                <DataGrid Grid.Row="1"  AutoGenerateColumns="False" IsReadOnly="True"  Margin="0 10 0 10"  ItemsSource="{Binding HocKi1}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="STT" Width="60" Binding="{Binding Stt}" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Mã môn học" Width="200" Binding="{Binding MaMonHoc}"/>
+                        <DataGridTextColumn Header="Tên môn học" Width="250" Binding="{Binding TenMonHoc}" />
+                        <DataGridTextColumn Header="Tien Quyết" Width="200" Binding="{Binding TienQuyet}" />
+                        <DataGridTextColumn Header="Số TC"  Width="150" Binding="{Binding SoTC}"/>
+                        <DataGridTextColumn Header="Số TCLT"  Width="150" Binding="{Binding SoTCLT}"/>
+                        <DataGridTextColumn Header="Số TCTH"  Width="150" Binding="{Binding SoTCTH}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <TextBlock Text="Học kì 2:" Grid.Row="2" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
+                <DataGrid Grid.Row="3" AutoGenerateColumns="False" IsReadOnly="True"  Margin="0 10 0 10"  ItemsSource="{Binding HocKi2}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="STT" Width="60" Binding="{Binding Stt}" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Mã môn học" Width="200" Binding="{Binding MaMonHoc}"/>
+                        <DataGridTextColumn Header="Tên môn học" Width="250" Binding="{Binding TenMonHoc}" />
+                        <DataGridTextColumn Header="Tien Quyết" Width="200" Binding="{Binding TienQuyet}" />
+                        <DataGridTextColumn Header="Số TC"  Width="150" Binding="{Binding SoTC}"/>
+                        <DataGridTextColumn Header="Số TCLT"  Width="150" Binding="{Binding SoTCLT}"/>
+                        <DataGridTextColumn Header="Số TCTH"  Width="150" Binding="{Binding SoTCTH}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <TextBlock Text="Học kì 3:" Grid.Row="4" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
+                <DataGrid Grid.Row="5" AutoGenerateColumns="False" IsReadOnly="True"  Margin="0 10 0 10"  ItemsSource="{Binding HocKi3}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="STT" Width="60" Binding="{Binding Stt}" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Mã môn học" Width="200" Binding="{Binding MaMonHoc}"/>
+                        <DataGridTextColumn Header="Tên môn học" Width="250" Binding="{Binding TenMonHoc}" />
+                        <DataGridTextColumn Header="Tien Quyết" Width="200" Binding="{Binding TienQuyet}" />
+                        <DataGridTextColumn Header="Số TC"  Width="150" Binding="{Binding SoTC}"/>
+                        <DataGridTextColumn Header="Số TCLT"  Width="150" Binding="{Binding SoTCLT}"/>
+                        <DataGridTextColumn Header="Số TCTH"  Width="150" Binding="{Binding SoTCTH}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <TextBlock Text="Học kì 4:" Grid.Row="6" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
+                <DataGrid Grid.Row="7"  AutoGenerateColumns="False" IsReadOnly="True"  Margin="0 10 0 10"  ItemsSource="{Binding HocKi4}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="STT" Width="60" Binding="{Binding Stt}" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Mã môn học" Width="200" Binding="{Binding MaMonHoc}"/>
+                        <DataGridTextColumn Header="Tên môn học" Width="250" Binding="{Binding TenMonHoc}" />
+                        <DataGridTextColumn Header="Tien Quyết" Width="200" Binding="{Binding TienQuyet}" />
+                        <DataGridTextColumn Header="Số TC"  Width="150" Binding="{Binding SoTC}"/>
+                        <DataGridTextColumn Header="Số TCLT"  Width="150" Binding="{Binding SoTCLT}"/>
+                        <DataGridTextColumn Header="Số TCTH"  Width="150" Binding="{Binding SoTCTH}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <TextBlock Text="Học kì 5:" Grid.Row="8" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
+                <DataGrid Grid.Row="9"  AutoGenerateColumns="False" IsReadOnly="True"  Margin="0 10 0 10"  ItemsSource="{Binding HocKi4}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="STT" Width="60" Binding="{Binding Stt}" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Mã môn học" Width="200" Binding="{Binding MaMonHoc}"/>
+                        <DataGridTextColumn Header="Tên môn học" Width="250" Binding="{Binding TenMonHoc}" />
+                        <DataGridTextColumn Header="Tien Quyết" Width="200" Binding="{Binding TienQuyet}" />
+                        <DataGridTextColumn Header="Số TC"  Width="150" Binding="{Binding SoTC}"/>
+                        <DataGridTextColumn Header="Số TCLT"  Width="150" Binding="{Binding SoTCLT}"/>
+                        <DataGridTextColumn Header="Số TCTH"  Width="150" Binding="{Binding SoTCTH}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <TextBlock Text="Học kì 6:" Grid.Row="10" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
+                <DataGrid Grid.Row="11"  AutoGenerateColumns="False" IsReadOnly="True"  Margin="0 10 0 10"  ItemsSource="{Binding HocKi6}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="STT" Width="60" Binding="{Binding Stt}" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Mã môn học" Width="200" Binding="{Binding MaMonHoc}"/>
+                        <DataGridTextColumn Header="Tên môn học" Width="250" Binding="{Binding TenMonHoc}" />
+                        <DataGridTextColumn Header="Tien Quyết" Width="200" Binding="{Binding TienQuyet}" />
+                        <DataGridTextColumn Header="Số TC"  Width="150" Binding="{Binding SoTC}"/>
+                        <DataGridTextColumn Header="Số TCLT"  Width="150" Binding="{Binding SoTCLT}"/>
+                        <DataGridTextColumn Header="Số TCTH"  Width="150" Binding="{Binding SoTCTH}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <TextBlock Text="Học kì 7:" Grid.Row="12" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
+                <DataGrid Grid.Row="13" AutoGenerateColumns="False" IsReadOnly="True"  Margin="0 10 0 10"  ItemsSource="{Binding HocKi7}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="STT" Width="60" Binding="{Binding Stt}" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Mã môn học" Width="200" Binding="{Binding MaMonHoc}"/>
+                        <DataGridTextColumn Header="Tên môn học" Width="250" Binding="{Binding TenMonHoc}" />
+                        <DataGridTextColumn Header="Tien Quyết" Width="200" Binding="{Binding TienQuyet}" />
+                        <DataGridTextColumn Header="Số TC"  Width="150" Binding="{Binding SoTC}"/>
+                        <DataGridTextColumn Header="Số TCLT"  Width="150" Binding="{Binding SoTCLT}"/>
+                        <DataGridTextColumn Header="Số TCTH"  Width="150" Binding="{Binding SoTCTH}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <TextBlock Text="Học kì 8:" Grid.Row="14" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
+                <DataGrid Grid.Row="15" AutoGenerateColumns="False" IsReadOnly="True"  Margin="0 10 0 10"  ItemsSource="{Binding HocKi8}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="STT" Width="60" Binding="{Binding Stt}" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Mã môn học" Width="200" Binding="{Binding MaMonHoc}"/>
+                        <DataGridTextColumn Header="Tên môn học" Width="250" Binding="{Binding TenMonHoc}" />
+                        <DataGridTextColumn Header="Tien Quyết" Width="200" Binding="{Binding TienQuyet}" />
+                        <DataGridTextColumn Header="Số TC"  Width="150" Binding="{Binding SoTC}"/>
+                        <DataGridTextColumn Header="Số TCLT"  Width="150" Binding="{Binding SoTCLT}"/>
+                        <DataGridTextColumn Header="Số TCTH"  Width="150" Binding="{Binding SoTCTH}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </ScrollViewer>
+       
     </Grid>
 </UserControl>

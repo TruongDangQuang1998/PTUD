@@ -10,8 +10,8 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Image Width="150" Height="200" Margin="0 30 0 0" Stretch="UniformToFill" Source="D:\Quang\IMG20201124111204.jpg"  VerticalAlignment="Top" />
-        <!--<Image Width="150" Grid.Row="0" Source="D:\Quang\IMG20201124111204.jpg" Grid.RowSpan="8" VerticalAlignment="Top"/>-->
+        <Image Width="180" Height="240" Margin="0 30 0 0" Stretch="UniformToFill" Source="D:\Download\A\254da33cacedb8ba246ae23689ecdd1b.jpg"  VerticalAlignment="Top" />
+        <!--<Image Width="150" Grid.Row="0" Source="D:\Download\20191005_124425.jpg" Grid.RowSpan="8" VerticalAlignment="Top"/>-->
         <Grid Grid.Column="1" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />

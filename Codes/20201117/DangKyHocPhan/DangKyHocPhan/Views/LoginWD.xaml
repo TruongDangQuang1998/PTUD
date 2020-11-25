@@ -5,8 +5,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
-        WindowState="Maximized">
+        mc:Ignorable="d">
     <Grid Width="500" Height="600" Background="#b3e5fc">
         <Grid  HorizontalAlignment="Center"  VerticalAlignment="Center" >
 
@@ -24,11 +23,11 @@
             <Label Content="ĐĂNG NHẬP" FontWeight="Bold" Grid.ColumnSpan="2" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <materialDesign:PackIcon Height="20" Width="20" Kind="Account"  Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
             <materialDesign:PackIcon Height="20" Width="20" Kind="Key" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-            <TextBox FontSize="20" Margin="0 40 0 0" Grid.Row="1" Grid.Column="1" Width="300" materialDesign:HintAssist.Hint="Tên Đăng Nhập"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" />
+            <TextBox FontSize="20" Text="{Binding Username}" Margin="0 40 0 0" Grid.Row="1" Grid.Column="1" Width="300" materialDesign:HintAssist.Hint="Tên Đăng Nhập"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" />
 
-            <PasswordBox FontSize="20" Margin="0 20 0 0" Grid.Row="2" Grid.Column="1" Width="300" HorizontalAlignment="Left"   x:Name="FloatingPasswordBox"  materialDesign:HintAssist.Hint="Mật Khẩu"  
+            <PasswordBox FontSize="20"   Margin="0 20 0 0" Grid.Row="2" Grid.Column="1" Width="300" HorizontalAlignment="Left"   x:Name="FloatingPasswordBox"  materialDesign:HintAssist.Hint="Mật Khẩu"  
                      materialDesign:HintAssist.Foreground="#448aff"  materialDesign:TextFieldAssist.UnderlineBrush="#448aff"  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
-            <Button HorizontalAlignment="Center" FontSize="20" Height="40" VerticalAlignment="Center" Margin="0 30 0 0" Grid.Row="3" Grid.ColumnSpan="2"   Style="{StaticResource MaterialDesignRaisedAccentButton}"    Width="200"    ToolTip="Resource name: MaterialDesignRaisedAccentButton">Đăng Nhập</Button>
+            <Button HorizontalAlignment="Center" Command="{Binding ClickLogin}" FontSize="20" Height="40" VerticalAlignment="Center" Margin="0 30 0 0" Grid.Row="3" Grid.ColumnSpan="2"   Style="{StaticResource MaterialDesignRaisedAccentButton}"    Width="200"    ToolTip="Resource name: MaterialDesignRaisedAccentButton">Đăng Nhập</Button>
         </Grid>
     </Grid>
 </Window>

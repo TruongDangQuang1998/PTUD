@@ -66,3 +66,7 @@ D:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\obj\Debug\DangKyHocPh
 D:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\obj\Debug\DangKyHocPhan.exe
 D:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\obj\Debug\DangKyHocPhan.pdb
 D:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\obj\Debug\DangKyHocPhan.csprojAssemblyReference.cache
+D:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\bin\Debug\Microsoft.Expression.Interactions.dll
+D:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\bin\Debug\System.Windows.Interactivity.dll
+D:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\bin\Debug\Microsoft.Expression.Interactions.xml
+D:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\bin\Debug\System.Windows.Interactivity.xml

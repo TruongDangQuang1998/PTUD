@@ -23,7 +23,7 @@ namespace DangKyHocPhan.Views
         public LoginWD()
         {
             InitializeComponent();
-            this.DataContext = new LoginModel();
+            this.DataContext = new UCModelUserLogin();
         }
     }
 }

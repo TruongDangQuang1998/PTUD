@@ -7,9 +7,9 @@ using System.Windows.Input;
 
 namespace DangKyHocPhan.ViewModels
 {
-    public class LoginModel : BaseViewModel
+    public class UCModelUserLogin : BaseViewModel
     {
-        public LoginModel()
+        public UCModelUserLogin()
         {
 
         }

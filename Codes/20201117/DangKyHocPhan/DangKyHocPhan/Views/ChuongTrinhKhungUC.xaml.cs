@@ -24,7 +24,7 @@ namespace DangKyHocPhan.Views
         public ChuongTrinhKhungUC()
         {
             InitializeComponent();
-            this.DataContext = new ChuongTrinhKhungUCModel();
+            this.DataContext = new UCModelChuongTrinhKhung();
         }
     }
 }

@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:DangKyHocPhan"
         xmlns:local1="clr-namespace:DangKyHocPhan.Views"
         mc:Ignorable="d"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         DataContext="{StaticResource MainVM}"
         xmlns:core="using:Microsoft.Xaml.Interactions.Core"
 xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
@@ -164,37 +165,49 @@ nhiệm vụ-->
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Orientation="Vertical">
             <Image Height="140"  Source="/Images/unnamed.png" Stretch="Fill"/>
-            <ListView Foreground="#FF313131" SelectedItem="{Binding MenuSelect}" FontFamily="Champagne &amp; Limousines" FontSize="18">
-                <ListViewItem Height="45" Padding="0">
+            <ListView x:Name="ListMenu" Foreground="#FF313131" SelectedItem="{Binding MenuSelect}" FontFamily="Champagne &amp; Limousines" FontSize="18">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding ThongTinTaiKhoanCommand}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <ListViewItem x:Name="ThongTinTaiKhoan" Height="45" Padding="0">
                     <StackPanel Orientation="Horizontal" Margin="10 0">
-                        <materialDesign:PackIcon Kind="Account" Width="20" Height="20" Foreground="CadetBlue" Margin="5" VerticalAlignment="Center"/>
+                        <materialDesign:PackIcon Kind="Account"  Width="20" Height="20" Foreground="CadetBlue" Margin="5" VerticalAlignment="Center"/>
                         <TextBlock Text="Thông tin Tài khoản"  Margin="10"/>
-                        <interactivity:Interaction.Behaviors>
-                            <core:EventTriggerBehavior EventName="Tapped">
-                                <core:InvokeCommandAction  Command="{Binding YourCommand}"/>
-                            </core:EventTriggerBehavior>
-                        </interactivity:Interaction.Behaviors>
                     </StackPanel>
                 </ListViewItem>
-                <ListViewItem Height="45" Padding="0">
+                <ListViewItem x:Name="MoLopHocPhan" Height="45" Padding="0">
                     <StackPanel Orientation="Horizontal" Margin="10 0">
-                        <materialDesign:PackIcon Kind="PlaylistAdd" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                        <materialDesign:PackIcon Kind="PlaylistAdd" Width="20" Height="20" Foreground="#4DB4EF" Margin="5" VerticalAlignment="Center"/>
+                        <TextBlock Text="Mở Lớp Học Phần" Margin="10"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="DangKyHocPhan" Height="45" Padding="0">
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="PersonAddOutline" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
                         <TextBlock Text="Đăng Ký Học Phần" Margin="10"/>
                     </StackPanel>
                 </ListViewItem>
-                <ListViewItem Height="45" Padding="0">
+                <ListViewItem x:Name="LichHoc" Height="45" Padding="0">
                     <StackPanel Orientation="Horizontal" Margin="10 0">
                         <materialDesign:PackIcon Kind="CalendarText" Width="20" Height="20" Foreground="Green" Margin="5" VerticalAlignment="Center"/>
                         <TextBlock Text="Lịch Học" Margin="10"/>
                     </StackPanel>
                 </ListViewItem>
-                <ListViewItem Height="45" Padding="0">
+                <ListViewItem x:Name="ChuongTrinhKhung" Height="45" Padding="0">
                     <StackPanel Orientation="Horizontal" Margin="10 0">
                         <materialDesign:PackIcon Kind="GridOn" Width="20" Height="20" Foreground="#FFD41515" Margin="5" VerticalAlignment="Center"/>
                         <TextBlock Text="Chương Trình Khung" Margin="10"/>
                     </StackPanel>
                 </ListViewItem>
-                <ListViewItem Height="45" Padding="0">
+                <!--<ListViewItem x:Name="QuanLyDuLieu" Height="45" Padding="0">
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="Database" Width="20" Height="20" Foreground="#FFD41515" Margin="5" VerticalAlignment="Center"/>
+                        <TextBlock Text="Quản Lý Dữ Liệu" Margin="10"/>
+                    </StackPanel>
+                </ListViewItem>-->
+                <ListViewItem x:Name="DangXuat" Height="45" Padding="0">
                     <StackPanel Orientation="Horizontal" Margin="10 0">
                         <materialDesign:PackIcon Kind="Logout" Width="20"  Height="20" Foreground="#FF0000" Margin="5" VerticalAlignment="Center"/>
                         <TextBlock Text="Đăng Xuất" Margin="10" />
@@ -202,10 +215,71 @@ nhiệm vụ-->
                 </ListViewItem>
             </ListView>
         </StackPanel>
-        <Grid Grid.Column="1">
+        <Grid Grid.Column="1" Margin="10 0 100 0">
+            <local1:ThongTinSinhVienUC   >
+                <local1:ThongTinSinhVienUC.Style>
+                    <Style TargetType="local1:ThongTinSinhVienUC">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding NameUC}" Value="ThongTinTaiKhoan">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </local1:ThongTinSinhVienUC.Style>
+            </local1:ThongTinSinhVienUC>
 
+            <local1:DangKyHocPhanUC   >
+                <local1:DangKyHocPhanUC.Style>
+                    <Style TargetType="local1:DangKyHocPhanUC">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding NameUC}" Value="DangKyHocPhan">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </local1:DangKyHocPhanUC.Style>
+            </local1:DangKyHocPhanUC>
+
+            <local1:LichHocUC    >
+                <local1:LichHocUC.Style>
+                    <Style TargetType="local1:LichHocUC">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding NameUC}" Value="LichHoc">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </local1:LichHocUC.Style>
+            </local1:LichHocUC>
+
+            <local1:ChuongTrinhKhungUC    >
+                <local1:ChuongTrinhKhungUC.Style>
+                    <Style TargetType="local1:ChuongTrinhKhungUC">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding NameUC}" Value="ChuongTrinhKhung">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </local1:ChuongTrinhKhungUC.Style>
+            </local1:ChuongTrinhKhungUC>
+
+            <!--<local1:ChuongTrinhKhungUC  >
+                <local1:ChuongTrinhKhungUC.Style>
+                    <Style TargetType="local1:ChuongTrinhKhungUC">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding NameUC}" Value="QuanLyDuLieu">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </local1:ChuongTrinhKhungUC.Style>
+            </local1:ChuongTrinhKhungUC>-->
         </Grid>
     </Grid>
-    
-    
 </Window>

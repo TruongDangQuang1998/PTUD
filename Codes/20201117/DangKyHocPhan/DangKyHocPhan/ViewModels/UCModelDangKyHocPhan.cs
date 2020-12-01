@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace DangKyHocPhan.ViewModels
 {
-    public class DangKyHocPhanUCModel : BaseViewModel
+    public class UCModelDangKyHocPhan : BaseViewModel
     {
-        public DangKyHocPhanUCModel()
+        public UCModelDangKyHocPhan()
         {
             LoadData();
         }

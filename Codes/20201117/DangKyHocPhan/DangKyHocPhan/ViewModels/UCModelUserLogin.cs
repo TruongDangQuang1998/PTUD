@@ -36,7 +36,6 @@ namespace DangKyHocPhan.ViewModels
 
 
         #region ICommand
-        private ICommand _clickLogin;
         public ICommand ClickLogin
         {
             get

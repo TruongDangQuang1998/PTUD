@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\App.xaml
-7908124623
+12-1882042820
 
-20944162072
+31672847787
 17-581409487
-MainWindow.xaml;ResourceXAML\MainResource.xaml;Views\ChuongTrinhKhungUC.xaml;Views\DangKyHocPhanUC.xaml;Views\LichHocUC.xaml;Views\LoginWD.xaml;Views\ThongTinSinhVienUC.xaml;
+MainWindow.xaml;ResourceXAML\MainResource.xaml;Views\UCChenLopHocPhan.xaml;Views\UCChuongTrinhKhung.xaml;Views\UCDangKyHocPhan.xaml;Views\UCDanhSachSinhVien.xaml;Views\UCLichHoc.xaml;Views\WDLogin.xaml;Views\UCMoLopHocPhan.xaml;Views\UCQuanLyDuLieu.xaml;Views\UCThongTinSinhVien.xaml;Views\UCThemMonHocDKHP.xaml;
 
-False
+True
 

@@ -2,8 +2,13 @@
 FD:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\App.xaml;;
 FD:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\MainWindow.xaml;;
 FD:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\ResourceXAML\MainResource.xaml;;
-FD:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\Views\ChuongTrinhKhungUC.xaml;;
-FD:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\Views\DangKyHocPhanUC.xaml;;
-FD:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\Views\LichHocUC.xaml;;
-FD:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\Views\ThongTinSinhVienUC.xaml;;
+FD:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\Views\UCChuongTrinhKhung.xaml;;
+FD:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\Views\UCDangKyHocPhan.xaml;;
+FD:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\Views\UCLichHoc.xaml;;
+FD:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\Views\UCMoLopHocPhan.xaml;;
+FD:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\Views\UCQuanLyDuLieu.xaml;;
+FD:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\Views\UCThongTinSinhVien.xaml;;
+FD:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\Views\UCThemMonHocDKHP.xaml;;
+FD:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\Views\UCChenLopHocPhan.xaml;;
+FD:\IUH\Ki7\PTUD\Codes\20201117\DangKyHocPhan\DangKyHocPhan\Views\UCDanhSachSinhVien.xaml;;
 

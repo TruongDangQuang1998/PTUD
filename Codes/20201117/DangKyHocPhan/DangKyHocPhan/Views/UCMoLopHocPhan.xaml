@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="DangKyHocPhan.Views.DangKyHocPhanUC"
+﻿<UserControl x:Class="DangKyHocPhan.Views.MoLopHocPhanUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:DangKyHocPhan.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin=" 0 0 0 0">
-        <Grid.RowDefinitions>
+    <StackPanel Orientation="Vertical" Margin=" 0 0 0 0">
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -24,11 +24,11 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <!--<ColumnDefinition/>-->
-        </Grid.ColumnDefinitions>
+            --><!--<ColumnDefinition/>--><!--
+        </Grid.ColumnDefinitions>-->
 
 
-        <TextBlock Grid.Row="0" Foreground="#F57B1E" Text="ĐĂNG KÝ HỌC PHẦN" HorizontalAlignment="Center"  FontWeight="Bold" FontSize="25" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="3" Margin="0  0 0 0"/>
+        <TextBlock Grid.Row="0" Foreground="#F57B1E" Text="MỞ LỚP HỌC PHẦN" HorizontalAlignment="Center"  FontWeight="Bold" FontSize="25" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="3" Margin="0  0 0 0"/>
         <Grid Grid.Row="1" HorizontalAlignment="Left">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -39,17 +39,18 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Row="1" Text="Học kì:" HorizontalAlignment="Right" FontWeight="Bold" FontSize="18" VerticalAlignment="Bottom" Margin="0  0 10 5"/>           
+            <TextBlock Grid.Row="1" Text="Học kì:" HorizontalAlignment="Right" FontWeight="Bold" FontSize="18" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
             <ComboBox Grid.Column="1" Grid.Row="1" Width="200" HorizontalAlignment="Left" FontSize="18" VerticalAlignment="Bottom"  
                   ItemsSource="{Binding HocKiList}"    
-                  SelectedItem="{Binding HocKiSelect}" />
+                  SelectedItem="{Binding HocKiSelect}"
+                      DisplayMemberPath="Name"/>
         </Grid>
-        
-        <TextBlock Grid.Row="2" Foreground="#44AECE" Text="MÔN HỌC PHẦN ĐANG CHỜ ĐĂNG KÝ" HorizontalAlignment="Center"  FontWeight="Bold" FontSize="18" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="3" Margin="0  0 0 0"/>
-        
+
+        <TextBlock Grid.Row="2" Foreground="#44AECE" Text="DANH SÁCH MÔN HỌC ĐÃ MỞ TRONG HỌC KÌ NÀY" HorizontalAlignment="Center"  FontWeight="Bold" FontSize="18" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="3" Margin="0  0 0 0"/>
+
         <!--list mon-->
 
-        <DataGrid Grid.Row="3"  AutoGenerateColumns="False" IsReadOnly="True"  Margin="0 10 0 10" Name="lvMonHoc" ItemsSource="{Binding MonHocList}" SelectedItem="{Binding MonHocSelected}">
+        <DataGrid Grid.Row="3"  AutoGenerateColumns="False" IsReadOnly="True"  Margin="0 10 0 10" Name="lvMonHoc" ItemsSource="{Binding MonHocList}" SelectedItem="{Binding MonHocSelect}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="STT" Width="60" Binding="{Binding Stt}" >
                     <DataGridTextColumn.ElementStyle>
@@ -58,17 +59,26 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Mã HP" Width="200" Binding="{Binding MaHP}"/>
+                <DataGridTextColumn Header="Mã Môn Học" Width="200" Binding="{Binding MaHP}"/>
                 <DataGridTextColumn Header="Tên môn học" Width="200" Binding="{Binding TenMonHoc}" />
                 <DataGridTextColumn Header="Số TC" Width="200" Binding="{Binding SoTC}" />
                 <DataGridTextColumn Header="Môn điều kiện"  Width="200" Binding="{Binding TienQuyet}"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <TextBlock Grid.Row="4" Foreground="#44AECE" Text="LỚP HỌC PHẦN CHỜ ĐĂNG KÝ" HorizontalAlignment="Center"  FontWeight="Bold" FontSize="18" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="3" Margin="0  0 0 0"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Mở Thêm Môn" Command="{Binding MoThemLopCommand}" Width="200" Foreground="White" Margin="10 0 10 0" />
+            <Button Content="Hủy Môn" Width="200" Foreground="White" Margin="10 0 10 0"/>
+
+        </StackPanel >
+
+
+
+
+        <TextBlock Grid.Row="4"  Foreground="#44AECE" Text="DANH SÁCH LỚP HỌC PHẦN ĐÃ MỞ" HorizontalAlignment="Center"  FontWeight="Bold" FontSize="18" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="3" Margin="0  10 0 0"/>
 
         <!--List hoc phan-->
-        <DataGrid Grid.Row="5"  AutoGenerateColumns="False" IsReadOnly="True"  Margin="0 10 0 10" Name="lvHocPhan" ItemsSource="{Binding HocPhanList}" SelectedItem="{Binding HocPhanSelected}">
+        <DataGrid Grid.Row="5"  AutoGenerateColumns="False" IsReadOnly="True"  Margin="0 10 0 10" Name="lvHocPhan" ItemsSource="{Binding HocPhanList}" SelectedItem="{Binding HocPhanSelect}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="STT" Width="60" Binding="{Binding Stt}" >
                     <DataGridTextColumn.ElementStyle>
@@ -85,10 +95,14 @@
                 <DataGridTextColumn Header="Trang thái" Width="190" Binding="{Binding TrangThai}" />
             </DataGrid.Columns>
         </DataGrid>
-        
-        
 
-        <Grid Grid.Row="6" HorizontalAlignment="Left">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Mở Thêm Lớp" Width="200" Command="{Binding MoThemLopCommand}" Foreground="White" Margin="10 0 10 0" />
+            <Button Content="Hủy Lớp" Width="200" Foreground="White" Margin="10 0 10 0"/>
+
+        </StackPanel >
+
+        <!--<Grid Grid.Row="6" HorizontalAlignment="Left">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -97,12 +111,12 @@
             <ComboBox Grid.Column="1" Width="50"  HorizontalAlignment="Left" FontSize="18" VerticalAlignment="Bottom" 
                       ItemsSource="{Binding NhomTHList}"    
                   SelectedItem="{Binding NhomTHSelect}" />
-        </Grid>
+        </Grid>-->
         <TextBlock Grid.Row="7" Foreground="#44AECE" Text="CHI TIẾT LỚP HỌC PHẦN" HorizontalAlignment="Center"  FontWeight="Bold" FontSize="18" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="3" Margin="0  0 0 0"/>
         <!--thông tin môn học-->
 
         <DataGrid Grid.Row="8"  AutoGenerateColumns="False"  Margin="0 10 0 10"  IsReadOnly="True" 
-                  ItemsSource="{Binding ChiTietList}" SelectedItem="{Binding ChiTietSelected}">
+                  ItemsSource="{Binding ChiTietList}" SelectedItem="{Binding ChiTietSelect}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="STT" Width="60" Binding="{Binding Stt}" >
                     <DataGridTextColumn.ElementStyle>
@@ -124,7 +138,12 @@
                 <DataGridTextColumn Header="Thời Gian" Width="200" Binding="{Binding ThoiGian}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Đăng Ký" Margin="0 20 0 0" FontSize="20" Height="40" Grid.Row="9" Width="200"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Cập nhập lịch học" Width="200" Command="{Binding MoThemLopCommand}" Foreground="White" Margin="10 0 10 0" />
+            <!--<Button Content="Hủy Môn" Width="200" Foreground="White" Margin="10 0 10 0"/>-->
+
+        </StackPanel >
+        <!--<Button Content="Đăng Ký" Command="{Binding DangKyHocPhan}" Margin="0 20 0 0" FontSize="20" Height="40" Grid.Row="9" Width="200"/>-->
         <!--<Button Content="Đăng ký" Grid.Row="5" Width="200"/>-->
-    </Grid>
+    </StackPanel>
 </UserControl>

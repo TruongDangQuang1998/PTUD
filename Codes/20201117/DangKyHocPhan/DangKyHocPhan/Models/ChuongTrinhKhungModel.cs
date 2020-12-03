@@ -8,6 +8,7 @@ namespace DangKyHocPhan.Models
 {
     public class ChuongTrinhKhungModel
     {
+        public int Id { get; set; }
         public int Stt { get; set; }
         public string MaMonHoc { get; set; }
         public string TenMonHoc { get; set; }

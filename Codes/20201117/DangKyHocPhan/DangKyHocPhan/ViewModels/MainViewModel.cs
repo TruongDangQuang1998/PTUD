@@ -1,9 +1,11 @@
 ﻿using DangKyHocPhan.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -14,27 +16,214 @@ namespace DangKyHocPhan.ViewModels
         public bool Isloaded = false;
         public ICommand LoadedWindowCommand { get; set; }
 
+
+        
         // mọi thứ xử lý sẽ nằm trong này
         public MainViewModel()
         {
             //LoadedWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
             //{
             //    Isloaded = true;
-                //LoginWD loginWindow = new LoginWD();
-                //loginWindow.ShowDialog();
+            //LoginWD loginWindow = new LoginWD();
+            //loginWindow.ShowDialog();
             //}
             //  );
         }
-        private string _menuSelect;
-        public string MenuSelect
+
+        #region Properties
+        private object _menuSelect;
+        public object MenuSelect
         {
             get { return _menuSelect; }
             set
             {
                 //var menuSelect = value.  ;
-                _menuSelect = value ;
+                _menuSelect = value;
+                var t = _menuSelect as ListViewItem;
+                NameUC = t.Name;
                 OnPropertyChanged("MenuSelect");
+                ChangeUC();
             }
         }
+        private string _nameUC;
+        public string NameUC
+        {
+            get { return _nameUC; }
+            set
+            {
+                _nameUC = value;
+                OnPropertyChanged("NameUC");
+                UCShow = NameUC;
+                //switch (NameUC)
+                //{
+                //    case "ThongTinTaiKhoan":
+                //        ThongTinSinhVienUCVisibility = Visibility.Visible;
+
+
+                //        MoLopHocPhanUCVisibility = Visibility.Collapsed;
+                //        DangKyHocPhanUCVisibility = Visibility.Collapsed;
+                //        LichHocUCVisibility = Visibility.Collapsed;
+                //        QuanLyDuLieuUCVisibility = Visibility.Collapsed;
+                //        break;
+                //    case "MoLopHocPhan":
+                //        MoLopHocPhanUCVisibility = Visibility.Visible;
+
+                //        ThongTinSinhVienUCVisibility = Visibility.Collapsed;
+                //        DangKyHocPhanUCVisibility = Visibility.Collapsed;
+                //        LichHocUCVisibility = Visibility.Collapsed;
+                //        QuanLyDuLieuUCVisibility = Visibility.Collapsed;
+                //        break;
+                //    case "DangKyHocPhan":
+                //        DangKyHocPhanUCVisibility = Visibility.Visible;
+
+                //        ThongTinSinhVienUCVisibility = Visibility.Collapsed;
+                //        MoLopHocPhanUCVisibility = Visibility.Collapsed;
+                //        LichHocUCVisibility = Visibility.Collapsed;
+                //        QuanLyDuLieuUCVisibility = Visibility.Collapsed;
+                //        break;
+                //    case "LichHoc":
+                //        LichHocUCVisibility = Visibility.Visible;
+
+                //        ThongTinSinhVienUCVisibility = Visibility.Collapsed;
+                //        MoLopHocPhanUCVisibility = Visibility.Collapsed;
+                //        DangKyHocPhanUCVisibility = Visibility.Collapsed;
+                //        QuanLyDuLieuUCVisibility = Visibility.Collapsed;
+                //        break;
+                //    case "QuanLyDuLieu":
+                //        QuanLyDuLieuUCVisibility = Visibility.Visible;
+
+                //        ThongTinSinhVienUCVisibility = Visibility.Collapsed;
+                //        MoLopHocPhanUCVisibility = Visibility.Collapsed;
+                //        DangKyHocPhanUCVisibility = Visibility.Collapsed;
+                //        LichHocUCVisibility = Visibility.Collapsed;
+                //        break;
+                //}
+            }
+        }
+        private  string _ucShow;
+        public  string UCShow
+        {
+            get { return _ucShow; }
+            set
+            {
+                _ucShow = value;
+                OnPropertyChanged("UCShow");
+            }
+        }
+
+        private Visibility _thongTinSinhVienUCVisibility = Visibility.Collapsed;
+        public Visibility ThongTinSinhVienUCVisibility
+        {
+            get { return _thongTinSinhVienUCVisibility; }
+            set
+            {
+                _thongTinSinhVienUCVisibility = value;
+                OnPropertyChanged("ThongTinSinhVienUCVisibility");
+            }
+        }
+        private Visibility _moLopHocPhanUCVisibility = Visibility.Collapsed;
+        public Visibility MoLopHocPhanUCVisibility
+        {
+            get { return _moLopHocPhanUCVisibility; }
+            set
+            {
+                _moLopHocPhanUCVisibility = value;
+                OnPropertyChanged("MoLopHocPhanUCVisibility");
+            }
+        }
+
+        private Visibility _dangKyHocPhanUCVisibility = Visibility.Hidden;
+        public Visibility DangKyHocPhanUCVisibility
+        {
+            get { return _dangKyHocPhanUCVisibility; }
+            set
+            {
+                _dangKyHocPhanUCVisibility = value;
+                OnPropertyChanged("DangKyHocPhanUCVisibility");
+            }
+        } 
+
+        private Visibility _lichHocUCVisibility = Visibility.Collapsed;
+        public Visibility LichHocUCVisibility
+        {
+            get { return _lichHocUCVisibility; }
+            set
+            {
+                _lichHocUCVisibility = value;
+                OnPropertyChanged("LichHocUCVisibility");
+            }
+        }
+
+
+        private Visibility _chuongTrinhKhungUCVisibility = Visibility.Collapsed;
+        public Visibility ChuongTrinhKhungUCVisibility
+        {
+            get { return _chuongTrinhKhungUCVisibility; }
+            set
+            {
+                _chuongTrinhKhungUCVisibility = value;
+                OnPropertyChanged("ChuongTrinhKhungUCVisibility");
+            }
+        }
+        private Visibility _quanLyDuLieuUCVisibility = Visibility.Collapsed;
+        public Visibility QuanLyDuLieuUCVisibility
+        {
+            get { return _quanLyDuLieuUCVisibility; }
+            set
+            {
+                _quanLyDuLieuUCVisibility = value;
+                OnPropertyChanged("QuanLyDuLieuUCVisibility");
+            }
+        }
+
+        #endregion
+
+        #region ICommands
+        public ICommand ThongTinTaiKhoanCommand
+        {
+            get
+            {
+                return new RelayCommand(obj =>
+                {
+
+                    UCShow = NameUC;
+                });
+
+            }
+        }
+        #endregion
+
+        #region Methods
+        public void ChangeUC()
+        {
+            switch (NameUC)
+            {
+                case "ThongTinTaiKhoan":
+
+                    break;
+                case "DangKyHocPhan":
+                    break;
+                case "LichHoc":
+                    break;
+                case "ChuongTrinhKhung":
+                    break;
+                case "DangXuat":
+                    break;
+                    //case "ThongTinTaiKhoan":
+                    //    break;
+                    //case "ThongTinTaiKhoan":
+                    //    break;
+                    //case "ThongTinTaiKhoan":
+                    //    break;
+                    //case "ThongTinTaiKhoan":
+                    //    break;
+                    //case "ThongTinTaiKhoan":
+                    //    break;
+
+            }
+        }
+        #endregion
+
     }
+
 }

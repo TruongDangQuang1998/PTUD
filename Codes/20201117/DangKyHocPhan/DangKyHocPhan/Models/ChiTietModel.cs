@@ -8,6 +8,7 @@ namespace DangKyHocPhan.Models
 {
     public class ChiTietModel
     {
+        public int Id { get; set; }
         public int Stt { get; set; }
         public string LichHoc { get; set; }
         public string NhomTH { get; set; }

@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace DangKyHocPhan.Models
 {
-    public class MonHocModel
+    public class HocKiModel
     {
         public int Id { get; set; }
-        public int Stt { get; set; }
-        public string MaHP { get; set; }
-        public string TenMonHoc { get; set; }
-        public int SoTC { get; set; }
+        public string Name { get; set; }
     }
 }

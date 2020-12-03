@@ -43,8 +43,14 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=3.2.0.1979, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.3.2.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -63,29 +69,50 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Entities\ChuyenNganh.cs" />
+    <Compile Include="Entities\Khoa.cs" />
+    <Compile Include="Entities\Lop.cs" />
+    <Compile Include="Entities\TaiKhoan.cs" />
     <Compile Include="Models\ChiTietModel.cs" />
     <Compile Include="Models\ChuongTrinhKhungModel.cs" />
+    <Compile Include="Models\HocKiModel.cs" />
     <Compile Include="Models\HocPhanModel.cs" />
     <Compile Include="Models\MonHocModel.cs" />
     <Compile Include="ViewModels\BaseViewModel .cs" />
-    <Compile Include="ViewModels\ChuongTrinhKhungUCModel.cs" />
-    <Compile Include="ViewModels\DangKyHocPhanUCModel.cs" />
-    <Compile Include="ViewModels\LoginModel.cs" />
+    <Compile Include="ViewModels\UCModelChuongTrinhKhung.cs" />
+    <Compile Include="ViewModels\UCModelDangKyHocPhan.cs" />
+    <Compile Include="ViewModels\UCModelMoLopHocPhan.cs" />
+    <Compile Include="ViewModels\UCModelUserLogin.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="Views\ChuongTrinhKhungUC.xaml.cs">
-      <DependentUpon>ChuongTrinhKhungUC.xaml</DependentUpon>
+    <Compile Include="Views\UCChenLopHocPhan.xaml.cs">
+      <DependentUpon>UCChenLopHocPhan.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DangKyHocPhanUC.xaml.cs">
-      <DependentUpon>DangKyHocPhanUC.xaml</DependentUpon>
+    <Compile Include="Views\UCChuongTrinhKhung.xaml.cs">
+      <DependentUpon>UCChuongTrinhKhung.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LichHocUC.xaml.cs">
-      <DependentUpon>LichHocUC.xaml</DependentUpon>
+    <Compile Include="Views\UCDangKyHocPhan.xaml.cs">
+      <DependentUpon>UCDangKyHocPhan.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LoginWD.xaml.cs">
-      <DependentUpon>LoginWD.xaml</DependentUpon>
+    <Compile Include="Views\UCDanhSachSinhVien.xaml.cs">
+      <DependentUpon>UCDanhSachSinhVien.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ThongTinSinhVienUC.xaml.cs">
-      <DependentUpon>ThongTinSinhVienUC.xaml</DependentUpon>
+    <Compile Include="Views\UCLichHoc.xaml.cs">
+      <DependentUpon>UCLichHoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WDLogin.xaml.cs">
+      <DependentUpon>WDLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UCMoLopHocPhan.xaml.cs">
+      <DependentUpon>UCMoLopHocPhan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UCQuanLyDuLieu.xaml.cs">
+      <DependentUpon>UCQuanLyDuLieu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UCThongTinSinhVien.xaml.cs">
+      <DependentUpon>UCThongTinSinhVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UCThemMonHocDKHP.xaml.cs">
+      <DependentUpon>UCThemMonHocDKHP.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -103,23 +130,43 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ChuongTrinhKhungUC.xaml">
+    <Page Include="Views\UCChenLopHocPhan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DangKyHocPhanUC.xaml">
+    <Page Include="Views\UCChuongTrinhKhung.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\LichHocUC.xaml">
+    <Page Include="Views\UCDangKyHocPhan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\LoginWD.xaml">
+    <Page Include="Views\UCDanhSachSinhVien.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ThongTinSinhVienUC.xaml">
+    <Page Include="Views\UCLichHoc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WDLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UCMoLopHocPhan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UCQuanLyDuLieu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UCThongTinSinhVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UCThemMonHocDKHP.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -157,6 +204,7 @@
   <ItemGroup>
     <Resource Include="Images\unnamed.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

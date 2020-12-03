@@ -1,0 +1,212 @@
+﻿<Window x:Class="DangKyHocPhan.Views.UCThemMonHocDKHP"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DangKyHocPhan.Views"
+             mc:Ignorable="d" >
+    <StackPanel Orientation="Vertical" Margin=" 0 0 0 0" HorizontalAlignment="Center">
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            -->
+        <!--<ColumnDefinition/>-->
+        <!--
+        </Grid.ColumnDefinitions>-->
+
+
+        <!--<TextBlock Grid.Row="0" Foreground="#F57B1E" Text="MỞ MÔN HỌC" HorizontalAlignment="Center"  FontWeight="Bold" FontSize="25" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="3" Margin="0  0 0 0"/>-->
+        <Grid Grid.Row="1" HorizontalAlignment="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <!--<TextBlock Grid.Row="1" Text="Học kì:" HorizontalAlignment="Right" FontWeight="Bold" FontSize="18" VerticalAlignment="Bottom" Margin="0  0 10 5"/>
+            <ComboBox Grid.Column="1" Grid.Row="1" Width="350" HorizontalAlignment="Left" FontSize="18" VerticalAlignment="Bottom"  
+                  ItemsSource="{Binding HocKiList}"    
+                  SelectedItem="{Binding HocKiSelect}"
+                      DisplayMemberPath="Name"/>-->
+        </Grid>
+
+        <TextBlock Grid.Row="2" Foreground="#44AECE" Text="MỞ LỚP HỌC PHẦN" HorizontalAlignment="Center"  FontWeight="Bold" FontSize="18" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="3" Margin="0  0 0 0"/>
+
+        <!--list mon-->
+        <!--<StackPanel Orientation="Horizontal">
+            <TextBlock Text="Tìm Môn Học:" FontSize="20" VerticalAlignment="Center"/>
+            <TextBox Text="123123" Width="350" FontSize="20" VerticalAlignment="Center" Margin="5 0 0 0"/>
+        </StackPanel>-->
+        <!--<DataGrid Grid.Row="3"  AutoGenerateColumns="False" IsReadOnly="True"  Margin="0 10 0 10" Name="lvMonHoc" ItemsSource="{Binding MonHocList}" SelectedItem="{Binding MonHocSelect}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="STT" Width="60" Binding="{Binding Stt}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Mã Môn Học" Width="350" Binding="{Binding MaHP}"/>
+                <DataGridTextColumn Header="Tên môn học" Width="350" Binding="{Binding TenMonHoc}" />
+                <DataGridTextColumn Header="Số TC" Width="350" Binding="{Binding SoTC}" />
+                <DataGridTextColumn Header="Môn điều kiện"  Width="350" Binding="{Binding TienQuyet}"/>
+            </DataGrid.Columns>
+        </DataGrid>-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <!--<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">-->
+            <TextBlock FontSize="20" Text="Năm học:" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"/>
+            <ComboBox FontSize="20" Width="350" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left"/>
+            <!--</StackPanel>-->
+            <!--<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">-->
+            <TextBlock FontSize="20" Text="Kì:" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right"/>
+            <ComboBox FontSize="20" Width="350" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left"/>
+            <!--</StackPanel>-->
+            <!--<StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0">-->
+            <TextBlock FontSize="20" Text="Khoa:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right"/>
+            <ComboBox FontSize="20" Width="350" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"/>
+            <!--</StackPanel>-->
+            <!--<StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">-->
+            <TextBlock FontSize="20" Text="Chuyên Ngành:" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right"/>
+            <ComboBox FontSize="20" Width="350" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left"/>
+            <!--</StackPanel>-->
+            <!--<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0">-->
+            <TextBlock FontSize="20" Text="Môn Học:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right"/>
+            <ComboBox FontSize="20" Width="600" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Left"/>
+            <!--</StackPanel>-->
+            <!--<StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">-->
+            <TextBlock FontSize="20" Text="Lớp:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right"/>
+            <ComboBox FontSize="20" Width="350" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left"/>
+            <!--</StackPanel>-->
+            <!--<StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0">-->
+            <TextBlock FontSize="20" Text="Giảng viên:" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right"/>
+            <ComboBox FontSize="20" Width="350" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left"/>
+            <!--</StackPanel>-->
+
+            <!--<StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="0">-->
+            <TextBlock FontSize="20" Text="Thời gian bắt đầu:" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right"/>
+            <DatePicker FontSize="20" Width="350" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left"/>
+            <!--</StackPanel>-->
+            <!--<StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1">-->
+            <TextBlock FontSize="20" Text="Thời gian kết thúc:" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Right"/>
+            <DatePicker FontSize="20" Width="350" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left"/>
+            <!--</StackPanel>-->
+            <!--<StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="0">-->
+            <TextBlock FontSize="20" Text="Tiết học Lý thuyết:" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right"/>
+            <!--<DatePicker Width="350"/>-->
+            <StackPanel Orientation="Horizontal"  Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left">
+                <TextBlock FontSize="20" Margin="30 0 10 0" Text="Thứ:" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right"/>
+                <ComboBox FontSize="20" Margin="10 0 10 0" Width="100" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left"/>
+                <TextBlock FontSize="20" Margin="10 0 10 0" Text="Tiết:" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Right"/>
+                <ComboBox FontSize="20" Margin="10 0 10 0" Width="100" Grid.Row="5" Grid.Column="4" HorizontalAlignment="Left"/>
+            </StackPanel>
+            
+            <!--</StackPanel>-->
+           
+            <TextBlock FontSize="20" Text="Tiết học thực hành nhóm 1:" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Right"/>
+            <StackPanel  Orientation="Horizontal" Grid.Row="6" Grid.Column="1">
+                <TextBlock FontSize="20" Margin="30 0 10 0" Text="Thứ:" Grid.Row="6" Grid.Column="1"  HorizontalAlignment="Right"/>
+                <ComboBox FontSize="20" Margin="10 0 10 0" Width="100" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Left"/>
+                <TextBlock FontSize="20" Margin="10 0 10 0" Text="Tiết:" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Right"/>
+                <ComboBox FontSize="20" Margin="10 0 10 0" Width="100" Grid.Row="6" Grid.Column="4" HorizontalAlignment="Left"/>
+            </StackPanel>
+            <TextBlock FontSize="20" Text="Tiết học thực hành nhóm 2:" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="7" Grid.Column="1">
+                <TextBlock FontSize="20" Margin="30 0 10 0" Text="Thứ:" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Right"/>
+                <ComboBox FontSize="20" Margin="10 0 10 0" Width="100" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left"/>
+                <TextBlock FontSize="20" Margin="10 0 10 0" Text="Tiết:" Grid.Row="7" Grid.Column="3" HorizontalAlignment="Right"/>
+                <ComboBox FontSize="20" Margin="10 0 10 0" Width="100" Grid.Row="7" Grid.Column="4" HorizontalAlignment="Left"/>
+            </StackPanel>
+            <TextBlock FontSize="20" Text="Tiết học thực hành nhóm 3:" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Right"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.Column="1">
+                <TextBlock  FontSize="20" Margin="30 0 10 0" Text="Thứ:"  Grid.Row="8" Grid.Column="1" HorizontalAlignment="Right"/>
+                <ComboBox Margin="10 0 10 0" FontSize="20" Width="100" Grid.Row="8" Grid.Column="2" HorizontalAlignment="Left"/>
+                <TextBlock Margin="10 0 10 0"  FontSize="20" Text="Tiết:" Grid.Row="8" Grid.Column="3" HorizontalAlignment="Right"/>
+                <ComboBox  Margin="10 0 10 0"  FontSize="20" Width="100" Grid.Row="8" Grid.Column="4" HorizontalAlignment="Left"/>
+            </StackPanel>
+        </Grid>
+        <!--<Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock  Foreground="#44AECE" Text="DANH SÁCH GIẢNG VIÊN" HorizontalAlignment="Center"  FontWeight="Bold" FontSize="18" VerticalAlignment="Bottom" Grid.Column="0"  Margin="0  0 0 0"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <TextBlock Text="Tìm Giảng Viên:" FontSize="20" VerticalAlignment="Center"/>
+                <TextBox Text="123123" Width="350" FontSize="20" VerticalAlignment="Center" Margin="5 0 0 0"/>
+            </StackPanel>
+            <DataGrid Grid.Row="2"   AutoGenerateColumns="False" IsReadOnly="True"  Margin="0 10 0 10"  ItemsSource="{Binding MonHocList}" SelectedItem="{Binding MonHocSelect}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="STT" Width="60" Binding="{Binding Stt}" >
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Mã Giảng Viên" Width="350" Binding="{Binding MGV}"/>
+                    <DataGridTextColumn Header="Tên Giảng Viên" Width="350" Binding="{Binding TenGV}" />
+                    <DataGridTextColumn Header="Khoa" Width="350" Binding="{Binding Khoa}" />
+                    <DataGridTextColumn Header="Chuyên Ngành"  Width="350" Binding="{Binding ChuyenNganh}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>-->
+
+
+
+
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Mở lớp" Width="350" FontSize="20" Foreground="White" Margin="0 20 0 0" />
+            <!--<Button Content="Hủy Môn" Width="350" Foreground="White" Margin="10 0 10 0"/>-->
+
+        </StackPanel >
+        <!--<Button Content="Đăng Ký" Command="{Binding DangKyHocPhan}" Margin="0 20 0 0" FontSize="20" Height="40" Grid.Row="9" Width="350"/>-->
+        <!--<Button Content="Đăng ký" Grid.Row="5" Width="350"/>-->
+    </StackPanel>
+</Window>

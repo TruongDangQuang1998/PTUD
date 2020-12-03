@@ -17,14 +17,14 @@ using System.Windows.Shapes;
 namespace DangKyHocPhan.Views
 {
     /// <summary>
-    /// Interaction logic for ChuongTrinhKhungUC.xaml
+    /// Interaction logic for MoLopHocPhanUC.xaml
     /// </summary>
-    public partial class ChuongTrinhKhungUC : UserControl
+    public partial class MoLopHocPhanUC : UserControl
     {
-        public ChuongTrinhKhungUC()
+        public MoLopHocPhanUC()
         {
             InitializeComponent();
-            this.DataContext = new ChuongTrinhKhungUCModel();
+            this.DataContext = new UCModelMoLopHocPhan();
         }
     }
 }

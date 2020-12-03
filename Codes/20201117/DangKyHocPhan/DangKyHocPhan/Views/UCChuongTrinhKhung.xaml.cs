@@ -11,19 +11,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace DangKyHocPhan.Views
 {
     /// <summary>
-    /// Interaction logic for LoginWD.xaml
+    /// Interaction logic for ChuongTrinhKhungUC.xaml
     /// </summary>
-    public partial class LoginWD : Window
+    public partial class ChuongTrinhKhungUC : UserControl
     {
-        public LoginWD()
+        public ChuongTrinhKhungUC()
         {
             InitializeComponent();
-            this.DataContext = new LoginModel();
+            this.DataContext = new UCModelChuongTrinhKhung();
         }
     }
 }

@@ -78,10 +78,13 @@
     <Compile Include="Models\HocKiModel.cs" />
     <Compile Include="Models\HocPhanModel.cs" />
     <Compile Include="Models\MonHocModel.cs" />
+    <Compile Include="Models\SinhVienModel.cs" />
     <Compile Include="ViewModels\BaseViewModel .cs" />
+    <Compile Include="ViewModels\UCModelChenLopHocPhan.cs" />
     <Compile Include="ViewModels\UCModelChuongTrinhKhung.cs" />
     <Compile Include="ViewModels\UCModelDangKyHocPhan.cs" />
     <Compile Include="ViewModels\UCModelMoLopHocPhan.cs" />
+    <Compile Include="ViewModels\UCModelThemMonHocDKHP.cs" />
     <Compile Include="ViewModels\UCModelUserLogin.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\UCChenLopHocPhan.xaml.cs">

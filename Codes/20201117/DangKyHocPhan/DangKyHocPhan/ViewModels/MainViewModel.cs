@@ -18,10 +18,14 @@ namespace DangKyHocPhan.ViewModels
         public ICommand LoadedWindowCommand { get; set; }
 
 
-        
+        private IDataBaseService _dataBaseService;
         // mọi thứ xử lý sẽ nằm trong này
         public MainViewModel()
         {
+            
+
+            _dataBaseService = new DataBaseService();
+            _dataBaseService.CreateIfNotExistsDB();
             //LoadedWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
             //{
             //    Isloaded = true;
@@ -29,7 +33,7 @@ namespace DangKyHocPhan.ViewModels
             //loginWindow.ShowDialog();
             //}
             //  );
-            
+
 
 
             VisibilityLoginMain = "Login";

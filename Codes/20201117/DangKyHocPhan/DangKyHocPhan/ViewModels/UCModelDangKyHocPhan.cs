@@ -1,4 +1,5 @@
-﻿using DangKyHocPhan.Models;
+﻿using DangKyHocPhan.ConnectDB;
+using DangKyHocPhan.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,14 +13,39 @@ namespace DangKyHocPhan.ViewModels
 {
     public class UCModelDangKyHocPhan : BaseViewModel
     {
+        private Context _context;
+        private IDataBaseService _dataBaseService;
         public UCModelDangKyHocPhan()
         {
+            _dataBaseService = new DataBaseService();
+            _context = new Context();
+            _context = _dataBaseService.GetContext();
             //LoadData();
             LoadHocKi();
         }
 
 
         #region properties
+        private ObservableCollection<NamHocModel> _namHocList;
+        public ObservableCollection<NamHocModel> NamHocList
+        {
+            get { return _namHocList; }
+            set {
+                _namHocList = value;
+                OnPropertyChanged("NamHocList");
+            }
+        }
+        private NamHocModel _namHocSelect;
+        public NamHocModel NamHocSelect
+        {
+            get { return _namHocSelect; }
+            set {
+                _namHocSelect = value;
+                OnPropertyChanged("NamHocSelect");
+                //Load  List Mon Hoc
+                LoadListMonHoc();
+            }
+        }
         private ObservableCollection<HocKiModel> _hocKiList;
         public ObservableCollection<HocKiModel> HocKiList
         {
@@ -37,7 +63,7 @@ namespace DangKyHocPhan.ViewModels
                 _hocKiSelect = value;
                 OnPropertyChanged("HocKiSelect");
                 //Load  List Mon Hoc
-                LoadListMonHoc(HocKiSelect.Id);
+                LoadListMonHoc();
             }
         }
         private ObservableCollection<string> _nhomTHList;
@@ -128,38 +154,53 @@ namespace DangKyHocPhan.ViewModels
         #region Methods
         public void LoadHocKi()
         {
-            var liststring = new ObservableCollection<HocKiModel>();
-            liststring.Add(new HocKiModel() { Id = 1, Name = "Học kì 1(2020 - 2021)" });
-            liststring.Add(new HocKiModel() { Id = 2, Name = "Học kì 3(2019 - 2020)" });
-            liststring.Add(new HocKiModel() { Id = 3, Name = "Học kì 2(2019 - 2020)" });
-            liststring.Add(new HocKiModel() { Id = 4, Name = "Học kì 1(2019 - 2020)" });
-            liststring.Add(new HocKiModel() { Id = 5, Name = "Học kì 3(2018 - 2019)" });
-            liststring.Add(new HocKiModel() { Id = 6, Name = "Học kì 2(2018 - 2019)" });
-            liststring.Add(new HocKiModel() { Id = 7, Name = "Học kì 1(2018 - 2019)" });
-            HocKiList = liststring;
-            HocKiSelect = liststring.FirstOrDefault();
+            var hockis = _context.HocKys;
+            var namhocs = _context.NamHocs;
+            var listHocKi = new ObservableCollection<HocKiModel>();
+            var listNamHoc = new ObservableCollection<NamHocModel>();
+            foreach (var item in hockis)
+            {
+                listHocKi.Add(new HocKiModel() { Id = item.MaHocKy, Name = item.TenHocKy });
+            }
+            foreach (var item in namhocs)
+            {
+                listNamHoc.Add(new NamHocModel() { Id = item.MaNamHoc, Name = item.TenNamHoc });
+            }
+            HocKiList = listHocKi;
+            HocKiSelect = listHocKi.FirstOrDefault();
+            NamHocList = listNamHoc;
+            NamHocSelect = listNamHoc.FirstOrDefault();
         }
         
-        public void LoadListMonHoc(int hocKiId)
+        public void LoadListMonHoc()
         {
             //HocKiSelect
-            if(MonHocList!=null)
-            MonHocList.Clear();
+
+            //NamHocSelect
+            if (MonHocList!=null)
+                MonHocList.Clear();
             ObservableCollection<MonHocModel> monHocs = new ObservableCollection<MonHocModel>();
+            var monHocPhan = _context.MonHocHocPhans.Where(x => (x.HocKy.MaHocKy == HocKiSelect.Id)&&(x.nam));
+
+            //Lọc lại nhựng môn đã đăng ký thì không hiện nữa
             //Call get List Mon Hoc for học kì
-            if (hocKiId == 1)
-            {
-                monHocs.Add(new MonHocModel() {Id=1, Stt = 1, MaHP = "111111", TenMonHoc = "Môn Học 1", SoTC = 3 });
-                monHocs.Add(new MonHocModel() { Id = 2, Stt = 2, MaHP = "222222", TenMonHoc = "Môn Học 2", SoTC = 4 });
-                monHocs.Add(new MonHocModel() { Id = 3, Stt = 3, MaHP = "333333", TenMonHoc = "Môn Học 3", SoTC = 3 });
-                
-            }
-            if (hocKiId == 2)
-            {
-                monHocs.Add(new MonHocModel() { Id = 4, Stt = 1, MaHP = "444444", TenMonHoc = "Môn Học 1", SoTC = 3 });
-                monHocs.Add(new MonHocModel() { Id = 5, Stt = 2, MaHP = "555555", TenMonHoc = "Môn Học 2", SoTC = 4 });
-                monHocs.Add(new MonHocModel() { Stt = 3, Id = 6, MaHP = "666666", TenMonHoc = "Môn Học 3", SoTC = 3 });
-            }
+
+
+
+
+            //if (hocKiId == 1)
+            //{
+            //    monHocs.Add(new MonHocModel() {Id=1, Stt = 1, MaHP = "111111", TenMonHoc = "Môn Học 1", SoTC = 3 });
+            //    monHocs.Add(new MonHocModel() { Id = 2, Stt = 2, MaHP = "222222", TenMonHoc = "Môn Học 2", SoTC = 4 });
+            //    monHocs.Add(new MonHocModel() { Id = 3, Stt = 3, MaHP = "333333", TenMonHoc = "Môn Học 3", SoTC = 3 });
+
+            //}
+            //if (hocKiId == 2)
+            //{
+            //    monHocs.Add(new MonHocModel() { Id = 4, Stt = 1, MaHP = "444444", TenMonHoc = "Môn Học 1", SoTC = 3 });
+            //    monHocs.Add(new MonHocModel() { Id = 5, Stt = 2, MaHP = "555555", TenMonHoc = "Môn Học 2", SoTC = 4 });
+            //    monHocs.Add(new MonHocModel() { Stt = 3, Id = 6, MaHP = "666666", TenMonHoc = "Môn Học 3", SoTC = 3 });
+            //}
             MonHocList = monHocs;
 
 

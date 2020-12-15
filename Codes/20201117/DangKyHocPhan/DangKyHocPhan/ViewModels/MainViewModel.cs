@@ -1,4 +1,5 @@
-﻿using DangKyHocPhan.Views;
+﻿using DangKyHocPhan.ConnectDB;
+using DangKyHocPhan.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -28,6 +29,13 @@ namespace DangKyHocPhan.ViewModels
             //loginWindow.ShowDialog();
             //}
             //  );
+            using (var context = new Context())
+            {
+                context.Database.CreateIfNotExists();
+            }
+
+
+            VisibilityLoginMain = "Login";
         }
 
         #region Properties
@@ -55,6 +63,7 @@ namespace DangKyHocPhan.ViewModels
                 _nameUC = value;
                 OnPropertyChanged("NameUC");
                 UCShow = NameUC;
+                
                 //switch (NameUC)
                 //{
                 //    case "ThongTinTaiKhoan":
@@ -109,8 +118,28 @@ namespace DangKyHocPhan.ViewModels
             {
                 _ucShow = value;
                 OnPropertyChanged("UCShow");
+                if (UCShow == "DangXuat")
+                {
+                    var  dialogResult =MessageBox.Show("Bạn Muốn Đăng Xuất", "Đăng Xuất", MessageBoxButton.YesNo);
+                    if(dialogResult == MessageBoxResult.Yes)
+                    {
+                        VisibilityLoginMain = "Login";
+                    }
+                }
             }
         }
+
+        private string _visibilityLoginMain;
+        public string VisibilityLoginMain
+        {
+            get { return _visibilityLoginMain; }
+            set
+            {
+                _visibilityLoginMain = value;
+                OnPropertyChanged("VisibilityLoginMain");
+            }
+        }
+
 
         private Visibility _thongTinSinhVienUCVisibility = Visibility.Collapsed;
         public Visibility ThongTinSinhVienUCVisibility
@@ -192,6 +221,30 @@ namespace DangKyHocPhan.ViewModels
 
             }
         }
+        public ICommand DangKyHocPhanCommand
+        {
+            get
+            {
+                return new RelayCommand(obj =>
+                {
+
+                    UCShow = "DangKyHocPhan";
+                });
+
+            }
+        }
+        public ICommand XemLichHocCommand
+        {
+            get
+            {
+                return new RelayCommand(obj =>
+                {
+
+                    UCShow = "XemLichDay";
+                });
+
+            }
+        }
         #endregion
 
         #region Methods
@@ -225,6 +278,58 @@ namespace DangKyHocPhan.ViewModels
         }
         #endregion
 
+
+
+        #region Login
+        private string _username;
+        public string Username
+        {
+            get { return _username; }
+            set
+            {
+                _username = value;
+                OnPropertyChanged("Username");
+            }
+        }
+        private string _password;
+        public string Password
+        {
+            get { return _password; }
+            set
+            {
+                _password = value;
+                OnPropertyChanged("Password");
+            }
+        }
+
+
+        #region ICommand
+        public ICommand ClickLogin
+        {
+            get
+            {
+                return new RelayCommand(obj =>
+                {
+                    if (true)
+                    {
+                        VisibilityLoginMain = "Main";
+                    }
+                    //if (Username == "giangvien")
+                    //{
+                    //    //var mainwindown = new MainWindow();
+                    //    //mainwindown.ShowDialog();
+                    //}
+                    //else
+                    //{
+
+                    //}
+
+                });
+
+            }
+        }
+        #endregion
+        #endregion
     }
 
 }

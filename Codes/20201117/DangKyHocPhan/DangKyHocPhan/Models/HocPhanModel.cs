@@ -16,5 +16,6 @@ namespace DangKyHocPhan.Models
         public string SiSoToiDa { get; set; }
         public string DaDangKy { get; set; }
         public string TrangThai { get; set; }
+        public int MaMonHP { get; set; }
     }
 }

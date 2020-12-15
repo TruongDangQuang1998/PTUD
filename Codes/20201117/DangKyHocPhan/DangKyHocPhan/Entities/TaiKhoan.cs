@@ -10,7 +10,6 @@ namespace DangKyHocPhan.Entities
     public class TaiKhoan
     {
         [Key]
-        public int Id { get; set; }
         public string TenTaiKhoan { get; set; }
         public string MatKhau { get; set; }
         public string TenQuyen { get; set; }
@@ -21,9 +20,10 @@ namespace DangKyHocPhan.Entities
         public string DiaChi { get; set; }
         public int SoDienThoai { get; set; }
 
-        public virtual CanBoDaoTao CanBoDaoTao { get; set; }
-        public virtual GiangVien GiangVien { get; set; }
-        public virtual SinhVien SinhVien { get; set; }
+        
+        public virtual List<GiangVien> GiangVien { get; set; }
+        public virtual List<SinhVien> SinhVien { get; set; }
+        public virtual List<CanBoDaoTao> CanBoDaoTao { get; set; }
 
     }
 }

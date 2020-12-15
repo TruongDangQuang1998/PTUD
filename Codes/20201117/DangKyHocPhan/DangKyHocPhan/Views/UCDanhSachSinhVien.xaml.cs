@@ -23,6 +23,7 @@ namespace DangKyHocPhan.Views
         public UCDanhSachSinhVien()
         {
             InitializeComponent();
+            
         }
     }
 }

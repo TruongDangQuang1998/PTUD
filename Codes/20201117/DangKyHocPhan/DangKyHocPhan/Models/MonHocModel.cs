@@ -10,7 +10,7 @@ namespace DangKyHocPhan.Models
     {
         public int Id { get; set; }
         public int Stt { get; set; }
-        public string MaHP { get; set; }
+        public string MaMH { get; set; }
         public string TenMonHoc { get; set; }
         public int SoTC { get; set; }
     }

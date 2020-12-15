@@ -15,5 +15,6 @@ namespace DangKyHocPhan.Models
         public string Phong { get; set; }
         public string GiangVien { get; set; }
         public string ThoiGian { get; set; }
+        public int MaLopHocPhan { get; set; }
     }
 }

@@ -13,6 +13,7 @@ namespace DangKyHocPhan.ViewModels
 {
     public class UCModelDangKyHocPhan : BaseViewModel
     {
+        
         private Context _context;
         private IDataBaseService _dataBaseService;
         public UCModelDangKyHocPhan()
@@ -104,7 +105,7 @@ namespace DangKyHocPhan.ViewModels
             {
                 _monHocSelect = value;
                 OnPropertyChanged("MonHocSelect");
-                LoadListHocPhan(MonHocSelect.Id);
+                LoadListHocPhan();
             }
         }
         private ObservableCollection<HocPhanModel> _hocPhanList;
@@ -125,7 +126,7 @@ namespace DangKyHocPhan.ViewModels
             {
                 _hocPhanSelect = value;
                 OnPropertyChanged("HocPhanSelect");
-                LoadChiTietHocPhan(HocPhanSelect.Id);
+                LoadChiTietHocPhan();
             }
         }
         private ObservableCollection<ChiTietModel> _chiTietList;
@@ -154,123 +155,93 @@ namespace DangKyHocPhan.ViewModels
         #region Methods
         public void LoadHocKi()
         {
-            var hockis = _context.HocKys;
-            var namhocs = _context.NamHocs;
-            var listHocKi = new ObservableCollection<HocKiModel>();
-            var listNamHoc = new ObservableCollection<NamHocModel>();
-            foreach (var item in hockis)
-            {
-                listHocKi.Add(new HocKiModel() { Id = item.MaHocKy, Name = item.TenHocKy });
-            }
-            foreach (var item in namhocs)
-            {
-                listNamHoc.Add(new NamHocModel() { Id = item.MaNamHoc, Name = item.TenNamHoc });
-            }
-            HocKiList = listHocKi;
-            HocKiSelect = listHocKi.FirstOrDefault();
-            NamHocList = listNamHoc;
-            NamHocSelect = listNamHoc.FirstOrDefault();
+            HocKiList = DataFree.hocKiModels;
+            HocKiSelect = HocKiList.FirstOrDefault();
+
+            NamHocList = DataFree.namHocModels;
+            NamHocSelect = NamHocList.FirstOrDefault();
+
+            //var hockis = _context.HocKys;
+            //var namhocs = _context.NamHocs;
+            //var listHocKi = new ObservableCollection<HocKiModel>();
+            //var listNamHoc = new ObservableCollection<NamHocModel>();
+            //foreach (var item in hockis)
+            //{
+            //    listHocKi.Add(new HocKiModel() { Id = item.MaHocKy, Name = item.TenHocKy });
+            //}
+            //foreach (var item in namhocs)
+            //{
+            //    listNamHoc.Add(new NamHocModel() { Id = item.MaNamHoc, Name = item.TenNamHoc });
+            //}
+            //HocKiList = listHocKi;
+            //HocKiSelect = listHocKi.FirstOrDefault();
+            //NamHocList = listNamHoc;
+            //NamHocSelect = listNamHoc.FirstOrDefault();
         }
         
         public void LoadListMonHoc()
         {
-            //HocKiSelect
-
-            //NamHocSelect
-            if (MonHocList!=null)
-                MonHocList.Clear();
-            ObservableCollection<MonHocModel> monHocs = new ObservableCollection<MonHocModel>();
-            var monHocPhan = _context.MonHocHocPhans.Where(x => (x.HocKy.MaHocKy == HocKiSelect.Id)&&(x.nam));
-
-            //Lọc lại nhựng môn đã đăng ký thì không hiện nữa
-            //Call get List Mon Hoc for học kì
-
-
-
-
-            //if (hocKiId == 1)
-            //{
-            //    monHocs.Add(new MonHocModel() {Id=1, Stt = 1, MaHP = "111111", TenMonHoc = "Môn Học 1", SoTC = 3 });
-            //    monHocs.Add(new MonHocModel() { Id = 2, Stt = 2, MaHP = "222222", TenMonHoc = "Môn Học 2", SoTC = 4 });
-            //    monHocs.Add(new MonHocModel() { Id = 3, Stt = 3, MaHP = "333333", TenMonHoc = "Môn Học 3", SoTC = 3 });
-
-            //}
-            //if (hocKiId == 2)
-            //{
-            //    monHocs.Add(new MonHocModel() { Id = 4, Stt = 1, MaHP = "444444", TenMonHoc = "Môn Học 1", SoTC = 3 });
-            //    monHocs.Add(new MonHocModel() { Id = 5, Stt = 2, MaHP = "555555", TenMonHoc = "Môn Học 2", SoTC = 4 });
-            //    monHocs.Add(new MonHocModel() { Stt = 3, Id = 6, MaHP = "666666", TenMonHoc = "Môn Học 3", SoTC = 3 });
-            //}
-            MonHocList = monHocs;
-
-
+            MonHocList = new ObservableCollection<MonHocModel>();
+            if(HocKiSelect!=null&& NamHocSelect!=null)
+            {
+                if (HocKiSelect.Id == 1 && NamHocSelect.Id == 1)
+                    foreach (var item in DataFree.monHocModels)
+                    {
+                        if(MonHocList!=null)
+                        MonHocList.Add(item);
+                    }
+            }
         }
 
-        public void LoadListHocPhan(int monHocId)
+        public void LoadListHocPhan()
         {
+            HocPhanList = new ObservableCollection<HocPhanModel>();
             if (HocPhanList != null)
                 HocPhanList.Clear();
+            if (MonHocSelect != null)
+            {
+                foreach (var item in DataFree.hocPhanModels)
+                {
+                    if (MonHocSelect.Id == item.MaMonHP)
+                        HocPhanList.Add(item);
+                }
+            }
 
-            if(monHocId == 1)
-            {
-                ObservableCollection<HocPhanModel> hocPhans = new ObservableCollection<HocPhanModel>();
-                hocPhans.Add(new HocPhanModel() {Id=1, Stt = 1, MaLHP = "123456", TenLopHocPhan = "Lop123", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
-                hocPhans.Add(new HocPhanModel() {Id=2, Stt = 2, MaLHP = "234569", TenLopHocPhan = "Lop234", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
-                hocPhans.Add(new HocPhanModel() {Id=3, Stt = 3, MaLHP = "345678", TenLopHocPhan = "Lop345", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
-                HocPhanList = hocPhans;
-            }
-            if (monHocId == 2)
-            {
-                ObservableCollection<HocPhanModel> hocPhans = new ObservableCollection<HocPhanModel>();
-                hocPhans.Add(new HocPhanModel() { Id = 4, Stt = 1, MaLHP = "111111", TenLopHocPhan = "Lop123", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
-                hocPhans.Add(new HocPhanModel() { Id = 5, Stt = 2, MaLHP = "222222", TenLopHocPhan = "Lop234", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
-                hocPhans.Add(new HocPhanModel() { Id = 6, Stt = 3, MaLHP = "333333", TenLopHocPhan = "Lop345", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
-                HocPhanList = hocPhans;
-            }
-            if (monHocId == 3)
-            {
-                ObservableCollection<HocPhanModel> hocPhans = new ObservableCollection<HocPhanModel>();
-                hocPhans.Add(new HocPhanModel() { Id = 4, Stt = 1, MaLHP = "111111", TenLopHocPhan = "Lop123", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
-                hocPhans.Add(new HocPhanModel() { Id = 5, Stt = 2, MaLHP = "222222", TenLopHocPhan = "Lop234", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
-                hocPhans.Add(new HocPhanModel() { Id = 6, Stt = 3, MaLHP = "333333", TenLopHocPhan = "Lop345", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
-                HocPhanList = hocPhans;
-            }
-            if (monHocId == 4)
-            {
-                ObservableCollection<HocPhanModel> hocPhans = new ObservableCollection<HocPhanModel>();
-                hocPhans.Add(new HocPhanModel() { Id = 4, Stt = 1, MaLHP = "111111", TenLopHocPhan = "Lop123", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
-                hocPhans.Add(new HocPhanModel() { Id = 5, Stt = 2, MaLHP = "222222", TenLopHocPhan = "Lop234", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
-                hocPhans.Add(new HocPhanModel() { Id = 6, Stt = 3, MaLHP = "333333", TenLopHocPhan = "Lop345", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
-                HocPhanList = hocPhans;
-            }
-            if (monHocId == 5)
-            {
-                ObservableCollection<HocPhanModel> hocPhans = new ObservableCollection<HocPhanModel>();
-                hocPhans.Add(new HocPhanModel() { Id = 4, Stt = 1, MaLHP = "111111", TenLopHocPhan = "Lop123", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
-                hocPhans.Add(new HocPhanModel() { Id = 5, Stt = 2, MaLHP = "222222", TenLopHocPhan = "Lop234", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
-                hocPhans.Add(new HocPhanModel() { Id = 6, Stt = 3, MaLHP = "333333", TenLopHocPhan = "Lop345", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
-                HocPhanList = hocPhans;
-            }
-            if (monHocId == 6)
-            {
-                ObservableCollection<HocPhanModel> hocPhans = new ObservableCollection<HocPhanModel>();
-                hocPhans.Add(new HocPhanModel() { Id = 4, Stt = 1, MaLHP = "111111", TenLopHocPhan = "Lop123", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
-                hocPhans.Add(new HocPhanModel() { Id = 5, Stt = 2, MaLHP = "222222", TenLopHocPhan = "Lop234", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
-                hocPhans.Add(new HocPhanModel() { Id = 6, Stt = 3, MaLHP = "333333", TenLopHocPhan = "Lop345", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
-                HocPhanList = hocPhans;
-            }
+
+            //if (HocPhanList != null)
+            //    HocPhanList.Clear();
+
+            //ObservableCollection<HocPhanModel> hocPhans = new ObservableCollection<HocPhanModel>();
+            //var lophocphan = _context.LopHocPhans.Where(x => x.MonHocHocPhan.Id == MonHocSelect.Id);
+            //foreach (var item in lophocphan)
+            //{
+            //    hocPhans.Add(new HocPhanModel()
+            //    {
+            //        Stt = hocPhans.Count + 1,
+            //        DaDangKy = item.SiSoDaDangKy.ToString(),
+            //        Lop = item.MaLopHocPhan.ToString(),
+            //        MaLHP = item.MaLopHocPhan.ToString(),
+            //        Id = item.Id,
+            //        SiSoToiDa = item.SiSoToiDa.ToString(),
+            //        TenLopHocPhan = item.TenLopHocPhan,
+            //        TrangThai = item.TrangThai
+            //    }) ;
+            //}
+            //HocPhanList = hocPhans;
         }
 
-        public void LoadChiTietHocPhan(int hocPhanId)
+        public void LoadChiTietHocPhan()
         {
-            if (ChiTietList != null)
-                ChiTietList.Clear();
-            ObservableCollection<ChiTietModel> chiTiets = new ObservableCollection<ChiTietModel>();
-            chiTiets.Add(new ChiTietModel() { Stt = 1, GiangVien = "Nguyễn Văn A", LichHoc = "LT-Thứ 2 (T6-T8)", NhomTH = "", Phong = "A1.1", ThoiGian = "15/08/2020-15/11/2020" });
-            chiTiets.Add(new ChiTietModel() { Stt = 2, GiangVien = "Nguyễn Văn A", LichHoc = "TH-Thứ 4 (T1-T6)", NhomTH = "1", Phong = "B11.1", ThoiGian = "15/08/2020-15/11/2020" });
-            chiTiets.Add(new ChiTietModel() { Stt = 3, GiangVien = "Nguyễn Văn B", LichHoc = "TH-Thứ 4 (T1-T6)", NhomTH = "2", Phong = "B11.2", ThoiGian = "15/08/2020-15/11/2020" });
-            ChiTietList = chiTiets;
-            LoadNhomThucHanh(hocPhanId);
+            //if (ChiTietList != null)
+            //    ChiTietList.Clear();
+            //ObservableCollection<ChiTietModel> chiTiets = new ObservableCollection<ChiTietModel>();
+            ////var chitietlophocphan= _context.
+
+            ////chiTiets.Add(new ChiTietModel() { Stt = 1, GiangVien = "Nguyễn Văn A", LichHoc = "LT-Thứ 2 (T6-T8)", NhomTH = "", Phong = "A1.1", ThoiGian = "15/08/2020-15/11/2020" });
+            ////chiTiets.Add(new ChiTietModel() { Stt = 2, GiangVien = "Nguyễn Văn A", LichHoc = "TH-Thứ 4 (T1-T6)", NhomTH = "1", Phong = "B11.1", ThoiGian = "15/08/2020-15/11/2020" });
+            ////chiTiets.Add(new ChiTietModel() { Stt = 3, GiangVien = "Nguyễn Văn B", LichHoc = "TH-Thứ 4 (T1-T6)", NhomTH = "2", Phong = "B11.2", ThoiGian = "15/08/2020-15/11/2020" });
+            //ChiTietList = chiTiets;
+            //LoadNhomThucHanh(hocPhanId);
         }
         public void LoadNhomThucHanh(int hocPhanId)
         {

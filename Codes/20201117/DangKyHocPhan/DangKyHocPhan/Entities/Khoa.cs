@@ -10,7 +10,6 @@ namespace DangKyHocPhan.Entities
     public class Khoa
     {
         [Key]
-        public int Id { get; set; }
         public int MaKhoa { get; set; }
         public string TenKhoa { get; set; }
         public int SoLuong { get; set; }

@@ -26,6 +26,7 @@ namespace DangKyHocPhan.Views
         {
             InitializeComponent();
             this.DataContext = new UCModelDangKyHocPhan();
+            
             //List<MonHoc> monHocs = new List<MonHoc>();
             //monHocs.Add(new MonHoc() {  Stt=1, MaHP="123456",TenMonHoc="Môn Học 1", SoTC=3 });
             //monHocs.Add(new MonHoc() {  Stt=2, MaHP="123457",TenMonHoc="Môn Học 2", SoTC=4 });

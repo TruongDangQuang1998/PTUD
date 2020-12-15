@@ -10,7 +10,6 @@ namespace DangKyHocPhan.Entities
     public class ChuyenNganh
     {
         [Key]
-        public int Id { get; set; }
         public int MaChuyenNganh { get; set; }
         public string TenChuyenNganh { get; set; }
         public int SoLuongLop { get; set; }

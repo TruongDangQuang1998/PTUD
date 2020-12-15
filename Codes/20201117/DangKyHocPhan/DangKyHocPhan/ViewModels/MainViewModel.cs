@@ -29,10 +29,7 @@ namespace DangKyHocPhan.ViewModels
             //loginWindow.ShowDialog();
             //}
             //  );
-            using (var context = new Context())
-            {
-                context.Database.CreateIfNotExists();
-            }
+            
 
 
             VisibilityLoginMain = "Login";

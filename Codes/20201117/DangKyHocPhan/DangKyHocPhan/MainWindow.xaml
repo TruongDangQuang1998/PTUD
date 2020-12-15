@@ -12,153 +12,238 @@
         xmlns:core="using:Microsoft.Xaml.Interactions.Core"
 xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
         Title="Đăng ký học phần"  WindowState="Maximized">
-    <!--<Window.Resources>
-            <Storyboard x:Key="CloseMenu">
-                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="GridMenu">
-                    <EasingDoubleKeyFrame KeyTime="0" Value="250"/>
-                    <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
-                </DoubleAnimationUsingKeyFrames>
-                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="GridBackground">
-                    <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-                    <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
-                </DoubleAnimationUsingKeyFrames>
-            </Storyboard>
-            <Storyboard x:Key="OpenMenu">
-                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="GridMenu">
-                    <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                    <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="250"/>
-                </DoubleAnimationUsingKeyFrames>
-                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="GridBackground">
-                    <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                    <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
-                </DoubleAnimationUsingKeyFrames>
-            </Storyboard>
-        </Window.Resources>
-        --><!--<Window.Triggers>
-            <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonClose">
-                <BeginStoryboard x:Name="CloseMenu_BeginStoryboard" Storyboard="{StaticResource CloseMenu}"/>
-            </EventTrigger>
-            <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpen">
-                <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
-            </EventTrigger>
-        </Window.Triggers>--><!--<Window.Triggers>
-            <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonClose">
-                <BeginStoryboard x:Name="CloseMenu_BeginStoryboard" Storyboard="{StaticResource CloseMenu}"/>
-            </EventTrigger>
-            <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpen">
-                <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
-            </EventTrigger>
-        </Window.Triggers>--><!--<Window.Triggers>
-            <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonClose">
-                <BeginStoryboard x:Name="CloseMenu_BeginStoryboard" Storyboard="{StaticResource CloseMenu}"/>
-            </EventTrigger>
-            <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpen">
-                <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
-            </EventTrigger>
-        </Window.Triggers>--><!--<Window.Triggers>
-            <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonClose">
-                <BeginStoryboard x:Name="CloseMenu_BeginStoryboard" Storyboard="{StaticResource CloseMenu}"/>
-            </EventTrigger>
-            <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpen">
-                <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
-            </EventTrigger>
-        </Window.Triggers>--><!--
-    <Grid>
+    
+        <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.3*"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="250"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        
-        --><!--GiangVien--><!--
-        <Grid Grid.Column="0" > 
-            --><!--<Grid.Style>
-                <Style TargetType="{x:Type Grid}">
-                    <Setter Property="Visibility" Value="Hidden"/>
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding GiangVienSingVien}" Value="GiangVien">
-                            <Setter Property="Visibility" Value="Collapsed"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Grid.Style>--><!--
-            <Grid x:Name="GridBackground"  Opacity="0"/>
+        <StackPanel>
+            <Image Height="140"  Source="/Images/unnamed.png" Stretch="Fill" Grid.Row="0"/>
+            <ListBox Grid.Row="1" x:Name="ListMenu" Foreground="#FF313131" SelectedItem="{Binding MenuSelect}" FontFamily="Champagne &amp; Limousines" FontSize="18">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding ThongTinTaiKhoanCommand}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <ListBox.Resources>
+                    <Style TargetType="{x:Type Expander}">
+                        <Setter Property="IsExpanded"
+           Value="{Binding Path=IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}}"/>
+                    </Style>
+                </ListBox.Resources>
+                <ListBox.Template>
+                    <ControlTemplate TargetType="{x:Type ListBox}">
+                        <ItemsPresenter/>
+                    </ControlTemplate>
+                </ListBox.Template>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                    <ContentPresenter Content="{TemplateBinding Content}"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <Expander >
+                    <Expander.Header>
+                        <BulletDecorator>
+                            <BulletDecorator.Bullet>
+                                <!--<Image Source="Iconos/Pedidos.png" Width="64" Height="64" HorizontalAlignment="Left" VerticalAlignment="Top" />-->
+                                <materialDesign:PackIcon Kind="AlphaSBox"  Width="40" Height="40" Foreground="#5FAAF5" Margin="5" VerticalAlignment="Center"/>
+                            </BulletDecorator.Bullet>
+                            <TextBlock Margin="10,0,0,0"  Text="Sinh viên" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
+                        </BulletDecorator>
+                    </Expander.Header>
+                    <StackPanel>
+                        <Button FontSize="20" BorderThickness="0" Background="Transparent" HorizontalContentAlignment="Left" Content="Đăng ký học phần" Command="{Binding DangKyHocPhan}"/>
+                        <Border  BorderBrush="Black" BorderThickness="0.5"></Border>
+                        <Button FontSize="20" BorderThickness="0" Background="Transparent" HorizontalContentAlignment="Left" Content="Xem lịch học" Command="{Binding XemLichHoc}"/>
+                        <!--<Label Margin="20,5,5,5" Content="Đăng ký học phần"/>-->
+                        <!--<Label Margin="20,5,5,5" Content="Xem lịch học"/>-->
+                    </StackPanel>
+                </Expander>
+                <Border  BorderBrush="Black" BorderThickness="1"></Border>
 
-            <Button x:Name="ButtonOpen" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Width="40" Height="40" Padding="0">
-                <materialDesign:PackIcon Kind="Menu" Height="40" Width="40" Foreground="#FF313131"/>
-            </Button>
-            <Grid x:Name="GridMenu" Width="250" HorizontalAlignment="Left" Margin="0 0 0 0" Background="White" RenderTransformOrigin="0.5,0.5">
-            --><!--<Grid x:Name="GridMenu" Width="250" HorizontalAlignment="Left" Margin="-250 0 0 0" Background="White" RenderTransformOrigin="0.5,0.5">--><!--
-                <Grid.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Grid.RenderTransform>
-                <StackPanel>
-                    <Image Height="140"  Source="/Images/unnamed.png" Stretch="Fill"/>
-                    <ListView Foreground="#FF313131" SelectedItem="{Binding MenuSelect}" FontFamily="Champagne &amp; Limousines" FontSize="18">
-                        <ListViewItem Height="45" Padding="0">
-                            <StackPanel Orientation="Horizontal" Margin="10 0">
-                                <materialDesign:PackIcon Kind="Account" Width="20" Height="20" Foreground="CadetBlue" Margin="5" VerticalAlignment="Center"/>
-                                <TextBlock Text="Thông tin Tài khoản" Margin="10"/>
-                            </StackPanel>
-                        </ListViewItem>
-                        <ListViewItem Height="45" Padding="0">
-                            <StackPanel Orientation="Horizontal" Margin="10 0">
-                                <materialDesign:PackIcon Kind="PlaylistAdd" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
-                                <TextBlock Text="Đăng Ký Học Phần" Margin="10"/>
-                            </StackPanel>
-                        </ListViewItem>
-                        <ListViewItem Height="45" Padding="0">
-                            <StackPanel Orientation="Horizontal" Margin="10 0">
-                                <materialDesign:PackIcon Kind="CalendarText" Width="20" Height="20" Foreground="Green" Margin="5" VerticalAlignment="Center"/>
-                                <TextBlock Text="Lịch Học" Margin="10"/>
-                            </StackPanel>
-                        </ListViewItem>
-                        <ListViewItem Height="45" Padding="0">
-                            <StackPanel Orientation="Horizontal" Margin="10 0">
-                                <materialDesign:PackIcon Kind="GridOn" Width="20" Height="20" Foreground="#FFD41515" Margin="5" VerticalAlignment="Center"/>
-                                <TextBlock Text="Chương Trình Khung" Margin="10"/>
-                            </StackPanel>
-                        </ListViewItem>
-                        <ListViewItem Height="45" Padding="0">
-                            <StackPanel Orientation="Horizontal" Margin="10 0">
-                                <materialDesign:PackIcon Kind="Logout" Width="20"  Height="20" Foreground="#FF0000" Margin="5" VerticalAlignment="Center"/>
-                                <TextBlock Text="Đăng Xuất" Margin="10" />
-                            </StackPanel>
-                        </ListViewItem>
-                    </ListView>
-                </StackPanel>
-                --><!--<Button x:Name="ButtonClose" Foreground="Black"  HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Width="30" Height="30" Padding="0">
-                    <materialDesign:PackIcon Kind="Close"/>
-                </Button>--><!--
+                <Expander >
+                    <Expander.Header>
+                        <BulletDecorator>
+                            <BulletDecorator.Bullet>
+                                <materialDesign:PackIcon Kind="AlphabetGBox"  Width="40" Height="40" Foreground="#56E8D0" Margin="5" VerticalAlignment="Center"/>
+                            </BulletDecorator.Bullet>
+                            <TextBlock Margin="10,0,0,0" Text="Giảng viên" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
+                        </BulletDecorator>
+                    </Expander.Header>
+                    <WrapPanel>
+                        <Label Margin="20,5,5,5"  Content="Xem lịch dạy"/>
+                    </WrapPanel>
+                </Expander>
+                <Border  BorderBrush="Black" BorderThickness="1"></Border>
+                <Expander >
+                    <Expander.Header>
+                        <BulletDecorator>
+                            <BulletDecorator.Bullet>
+                                <materialDesign:PackIcon Kind="AlphaPBox"  Width="40" Height="40" Foreground="#99FF33" Margin="5" VerticalAlignment="Center"/>
+                            </BulletDecorator.Bullet>
+                            <TextBlock Margin="10,0,0,0" Text="Phòng đào tạo" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
+                        </BulletDecorator>
+                    </Expander.Header>
+                    <StackPanel>
+                        <Label Margin="20,5,5,5"  Content="Mở lớp học phần"/>
+                        <Border  BorderBrush="Black" BorderThickness="0.5"></Border>
+                        <Label Margin="20,5,5,5"  Content="Chèn lớp học phần"/>
+                        <Border  BorderBrush="Black" BorderThickness="0.5"></Border>
+                        <Label Margin="20,5,5,5"  Content=""/>
+                    </StackPanel>
+                </Expander>
+                <Border  BorderBrush="Black" BorderThickness="1"></Border>
+                <Expander >
+                    <Expander.Header>
+                        <BulletDecorator>
+                            <BulletDecorator.Bullet>
+                                <materialDesign:PackIcon Kind="AlphabetQBox"  Width="40" Height="40" Foreground="#FFD400" Margin="5" VerticalAlignment="Center"/>
+                            </BulletDecorator.Bullet>
+                            <TextBlock Margin="10,0,0,0" Text="Quản lý" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
+                        </BulletDecorator>
+                    </Expander.Header>
+                    <StackPanel>
+                        <Label Margin="20,5,5,5"  Content="Nueva Factura"/>
+                        <Border  BorderBrush="Black" BorderThickness="0.5"></Border>
+                        <Label Margin="20,5,5,5"  Content="Consultar Facturas Normales y Anuladas"/>
+                    </StackPanel>
+                </Expander>
+                <Border  BorderBrush="Black" BorderThickness="1"></Border>
+                <ListViewItem x:Name="ThongTinTaiKhoan" Height="45" Padding="0">
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="Account"  Width="40" Height="40" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                        <TextBlock Text="Thông tin Tài khoản"  Margin="10"/>
+                    </StackPanel>
+                </ListViewItem>
+                <Border  BorderBrush="Black" BorderThickness="1"></Border>
+                <ListViewItem x:Name="DangXuat" Height="45" Padding="0">
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="Logout" Width="40" Height="40" Foreground="#FF0000" Margin="5" VerticalAlignment="Center"/>
+                        <TextBlock Text="Đăng Xuất" Margin="10" />
+                    </StackPanel>
+                </ListViewItem>
 
+            </ListBox>
+        </StackPanel>
+        <Grid Grid.Column="1" Margin="10 0 100 0">
+            <Grid >
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding UCShow}" Value="ThongTinTaiKhoan">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <local1:ThongTinSinhVienUC  />
+            </Grid>
+            <Grid >
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding UCShow}" Value="DangKyHocPhan">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <local1:DangKyHocPhanUC  />
+            </Grid>
+            <Grid >
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding UCShow}" Value="LichHoc">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <local1:LichHocUC   />
+            </Grid>
+            <Grid >
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding UCShow}" Value="XemLichDay">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <local1:LichHocUC   />
+            </Grid>
+            <Grid >
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding UCShow}" Value="QuanLyDuLieu">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <local1:QuanLyDuLieuUC  />
+            </Grid>
+            <Grid >
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding UCShow}" Value="MoLopHocPhan">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <local1:MoLopHocPhanUC  />
+            </Grid>
+            <Grid >
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding UCShow}" Value="ChenLopHocPhan">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <local1:UCChenLopHocPhan  />
+            </Grid>
+            <Grid >
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding UCShow}" Value="DanhSachSinhVienDK">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <local1:UCDanhSachSinhVien  />
             </Grid>
         </Grid>
-        
-        
-        
-        
-        
-        <local1:DangKyHocPhanUC Grid.Row="1" Grid.Column="1" Margin=" 0 0 0 0" />
-        --><!--<local1:ThongTinSinhVienUC Grid.Row="1" Grid.Column="1" Margin=" 0 0 0 0" />-->
-        <!--<local1:ChuongTrinhKhungUC Grid.Row="1" Grid.Column="1" Margin=" 0 0 0 0" />-->
-        <!--<local1:LichHocUC Grid.Row="1" Grid.Column="1" Margin=" 0 0 0 0" />--><!--
-
     </Grid>
-    --><!--add lich hpc vao list view
 
 
+    
 
-đối tượng
-chức năng
-nhiệm vụ-->
-
-
-    <Grid>
+    <!--<Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
             <ColumnDefinition/>
@@ -207,12 +292,6 @@ nhiệm vụ-->
                         <TextBlock Text="Lịch Học" Margin="10"/>
                     </StackPanel>
                 </ListViewItem>
-                <!--<ListViewItem x:Name="ChuongTrinhKhung" Height="45" Padding="0">
-                    <StackPanel Orientation="Horizontal" Margin="10 0">
-                        <materialDesign:PackIcon Kind="GridOn" Width="20" Height="20" Foreground="#FFD41515" Margin="5" VerticalAlignment="Center"/>
-                        <TextBlock Text="Chương Trình Khung" Margin="10"/>
-                    </StackPanel> 
-                </ListViewItem>-->
                 <ListViewItem x:Name="XemLichDay" Height="45" Padding="0">
                     <StackPanel Orientation="Horizontal" Margin="10 0">
                         <materialDesign:PackIcon Kind="CalendarText" Width="20" Height="20" Foreground="#FFD400" Margin="5" VerticalAlignment="Center"/>
@@ -341,5 +420,5 @@ nhiệm vụ-->
                 <local1:UCDanhSachSinhVien  />
             </Grid>
         </Grid>
-    </Grid>
+    </Grid>-->
 </Window>

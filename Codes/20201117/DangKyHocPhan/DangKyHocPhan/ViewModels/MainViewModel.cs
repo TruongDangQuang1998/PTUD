@@ -40,9 +40,10 @@ namespace DangKyHocPhan.ViewModels
                 //var menuSelect = value.  ;
                 _menuSelect = value;
                 var t = _menuSelect as ListViewItem;
+                if(t!=null)
                 NameUC = t.Name;
                 OnPropertyChanged("MenuSelect");
-                ChangeUC();
+                //ChangeUC();
             }
         }
         private string _nameUC;

@@ -558,7 +558,7 @@ namespace DangKyHocPhan.ViewModels
                             MessageBox.Show("Đăng Ký Thành Công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
 
                         }
-                        else if (NhomTHSelect != null)
+                        else if (NhomTHSelect != null&&ChiTietSelect != null)
                         {
 
                             sv.IdMonHocs.Add(MonHocSelect.Id);
@@ -610,15 +610,21 @@ namespace DangKyHocPhan.ViewModels
 
                     if (MonHocDaDangKySelect != null)
                     {
+                        var sv = DataFree.sinhVienModels.FirstOrDefault(x => x.Id == IdSv);
                         var a = MessageBox.Show($"Bạn muốn hủy học phần {MonHocDaDangKySelect.TenMonHoc}?", "Hủy học phần", MessageBoxButton.YesNo);
                         if (a == MessageBoxResult.Yes)
                         {
                             if (MonHocDaDangKySelect.TrangThai != "Chấp nhận mở lớp")
                             {
-                                var monhoc = DataFree.monHocModels.FirstOrDefault(x => x.Id == MonHocDaDangKySelect.IdMonHoc);
-                                monhoc.TrangThaiDangKy = 0;
-                                DataFree.monHocDaDangKyModels.Remove(MonHocDaDangKySelect);
-                                MonHocDaDangKyList.Remove(MonHocDaDangKySelect);
+                                if(sv!=null)
+                                sv.IdMonHocs.Remove(MonHocSelect.Id);
+                                sv.MonHocDaDangKyModels.Remove(MonHocDaDangKySelect);
+
+
+                                //var monhoc = DataFree.monHocModels.FirstOrDefault(x => x.Id == MonHocDaDangKySelect.IdMonHoc);
+                                //monhoc.TrangThaiDangKy = 0;
+                                //DataFree.monHocDaDangKyModels.Remove(MonHocDaDangKySelect);
+                                //MonHocDaDangKyList.Remove(MonHocDaDangKySelect);
                                 MessageBox.Show("Hủy Thành Công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
 
                             }

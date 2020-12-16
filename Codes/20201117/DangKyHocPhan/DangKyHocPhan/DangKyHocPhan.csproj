@@ -98,12 +98,16 @@
     <Compile Include="Entities\TietHoc.cs" />
     <Compile Include="Models\ChiTietModel.cs" />
     <Compile Include="Models\ChuongTrinhKhungModel.cs" />
+    <Compile Include="Models\ChuyenNganhModels.cs" />
+    <Compile Include="Models\GiangVienModel.cs" />
     <Compile Include="Models\HocKiModel.cs" />
     <Compile Include="Models\HocPhanModel.cs" />
     <Compile Include="Models\MonHocDaDangKyModel.cs" />
     <Compile Include="Models\MonHocModel.cs" />
     <Compile Include="Models\NamHocModel.cs" />
     <Compile Include="Models\SinhVienModel.cs" />
+    <Compile Include="Models\ThuModel.cs" />
+    <Compile Include="Models\TietModel.cs" />
     <Compile Include="ViewModels\BaseViewModel .cs" />
     <Compile Include="ViewModels\UCModelChenLopHocPhan.cs" />
     <Compile Include="ViewModels\UCModelChuongTrinhKhung.cs" />

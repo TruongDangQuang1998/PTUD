@@ -233,6 +233,18 @@ namespace DangKyHocPhan.ViewModels
 
             }
         }
+        public ICommand MoLopHocPhanCommand
+        {
+            get
+            {
+                return new RelayCommand(obj =>
+                {
+
+                    UCShow = "MoLopHocPhan";
+                });
+
+            }
+        }
         public ICommand DangKyHocPhanCommand
         {
             get

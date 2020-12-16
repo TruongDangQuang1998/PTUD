@@ -129,18 +129,34 @@
             <!--<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0">-->
             <TextBlock FontSize="20" Text="Môn Học:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right"/>
             <ComboBox FontSize="20" Width="600" Grid.Row="2" ItemsSource="{Binding MonHocList}" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Left">
-                <ComboBoxItem>
-                    
-                </ComboBoxItem>
+                <ComboBoxItem>Vật lí A1</ComboBoxItem>
+                <ComboBoxItem>Logic học</ComboBoxItem>
+                <ComboBoxItem>Tâm lý học đại cương</ComboBoxItem>
+                <ComboBoxItem>Quản lý dự án CNTT</ComboBoxItem>
+                <ComboBoxItem>Xây dựng phần mềm</ComboBoxItem>
+                <ComboBoxItem>Lập trình Phân tán với công nghệ Java</ComboBoxItem>
+                <ComboBoxItem>Lập trình Phân tán với công nghệ .NET</ComboBoxItem>
+                <ComboBoxItem>Kiếm trúc hướng dịch vụ và Điện toán đám mây</ComboBoxItem>
+                <ComboBoxItem>Công nghệ mới trong phát triển ứng dụng CNTT</ComboBoxItem>
             </ComboBox>
             <!--</StackPanel>-->
             <!--<StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">-->
             <TextBlock FontSize="20" Text="Lớp:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right"/>
-            <ComboBox FontSize="20" Width="350" Grid.Row="3" ItemsSource="{Binding LopList}" Grid.Column="1" HorizontalAlignment="Left"/>
+            <ComboBox FontSize="20" Width="350" Grid.Row="3" ItemsSource="{Binding LopList}" Grid.Column="1" HorizontalAlignment="Left">
+                <ComboBoxItem>DHKTPM13A</ComboBoxItem>
+                <ComboBoxItem>DHKTPM13B</ComboBoxItem>
+            </ComboBox>
             <!--</StackPanel>-->
             <!--<StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0">-->
             <TextBlock FontSize="20" Text="Giảng viên:" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right"/>
-            <ComboBox FontSize="20" Width="350" Grid.Row="3" Grid.Column="3" ItemsSource="{Binding GiangVienList}" HorizontalAlignment="Left"/>
+            <ComboBox FontSize="20" Width="350" Grid.Row="3" Grid.Column="3" ItemsSource="{Binding GiangVienList}" HorizontalAlignment="Left">
+                <ComboBoxItem>Nguyễn Văn A</ComboBoxItem>
+                <ComboBoxItem>Nguyễn Văn B</ComboBoxItem>
+                <ComboBoxItem>Nguyễn Thị C</ComboBoxItem>
+                <ComboBoxItem>Thầy Lý Thuyết</ComboBoxItem>
+                <ComboBoxItem>Thầy Thực Hành 1</ComboBoxItem>
+                <ComboBoxItem>Thầy Thực Hành 2</ComboBoxItem>
+            </ComboBox>
             <!--</StackPanel>-->
             <!--<StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="0">-->
             <TextBlock FontSize="20" Text="Thời gian bắt đầu Đăng ký:" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right"/>
@@ -161,10 +177,26 @@
             <TextBlock FontSize="20" Text="Tiết học Lý thuyết:" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right"/>
             <!--<DatePicker Width="350"/>-->
             <StackPanel Orientation="Horizontal"  Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left">
-                <TextBlock FontSize="20" Margin="30 0 10 0" Text="Thứ:" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right"/>
-                <ComboBox FontSize="20" ItemsSource="{Binding ThuList}" SelectedItem="{Binding ThuLT}" Margin="10 0 10 0" Width="100" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left"/>
+                <TextBlock FontSize="20" Margin="30 0 10 0" Text="Thứ:" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right">
+                </TextBlock>
+                <ComboBox FontSize="20" ItemsSource="{Binding ThuList}" SelectedItem="{Binding ThuLT}" Margin="10 0 10 0" Width="100" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left">
+                    <ComboBoxItem>2</ComboBoxItem>
+                    <ComboBoxItem>3</ComboBoxItem>
+                    <ComboBoxItem>4</ComboBoxItem>
+                    <ComboBoxItem>5</ComboBoxItem>
+                    <ComboBoxItem>6</ComboBoxItem>
+                    <ComboBoxItem>7</ComboBoxItem>
+                </ComboBox>
                 <TextBlock FontSize="20" Margin="10 0 10 0" Text="Tiết:" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Right"/>
-                <ComboBox FontSize="20" ItemsSource="{Binding TietList}" SelectedItem="{Binding TietLT}" Margin="10 0 10 0" Width="100" Grid.Row="5" Grid.Column="4" HorizontalAlignment="Left"/>
+                    
+                <ComboBox FontSize="20" ItemsSource="{Binding TietList}" SelectedItem="{Binding TietLT}" Margin="10 0 10 0" Width="100" Grid.Row="5" Grid.Column="4" HorizontalAlignment="Left">
+                    <ComboBoxItem>T1-T3</ComboBoxItem>
+                    <ComboBoxItem>T4-T6</ComboBoxItem>
+                    <ComboBoxItem>T7-T9</ComboBoxItem>
+                    <ComboBoxItem>T10-T12</ComboBoxItem>
+                    <ComboBoxItem>T12-T14</ComboBoxItem>
+                   
+                </ComboBox>
             </StackPanel>
             
             <!--</StackPanel>-->
@@ -172,7 +204,7 @@
             <TextBlock FontSize="20" Text="Tiết học thực hành nhóm 1:" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Right"/>
             <StackPanel  Orientation="Horizontal" Grid.Row="8" Grid.Column="1">
                 <TextBlock FontSize="20" Margin="30 0 10 0" Text="Thứ:" Grid.Row="6" Grid.Column="1"  HorizontalAlignment="Right"/>
-                <ComboBox FontSize="20" ItemsSource="{Binding Thu}" SelectedItem="{Binding ThuTH1}" Margin="10 0 10 0" Width="100" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Left"/>
+                <ComboBox FontSize="20" ItemsSource="{Binding ThuList}" SelectedItem="{Binding ThuTH1}" Margin="10 0 10 0" Width="100" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Left"/>
                 <TextBlock FontSize="20" Margin="10 0 10 0" Text="Tiết:" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Right"/>
                 <ComboBox FontSize="20" ItemsSource="{Binding Tiet}" SelectedItem="{Binding TietTH1}" Margin="10 0 10 0" Width="100" Grid.Row="6" Grid.Column="4" HorizontalAlignment="Left"/>
             </StackPanel>

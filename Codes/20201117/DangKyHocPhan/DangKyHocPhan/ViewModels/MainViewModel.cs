@@ -25,8 +25,8 @@ namespace DangKyHocPhan.ViewModels
         {
             DataFree.CreateDatas();
 
-            _dataBaseService = new DataBaseService();
-            _dataBaseService.CreateIfNotExistsDB();
+            //_dataBaseService = new DataBaseService();
+            //_dataBaseService.CreateIfNotExistsDB();
             //LoadedWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
             //{
             //    Isloaded = true;
@@ -233,6 +233,18 @@ namespace DangKyHocPhan.ViewModels
 
             }
         }
+        public ICommand MoLopHocPhanCommand
+        {
+            get
+            {
+                return new RelayCommand(obj =>
+                {
+
+                    UCShow = "MoLopHocPhan";
+                });
+
+            }
+        }
         public ICommand DangKyHocPhanCommand
         {
             get
@@ -362,7 +374,10 @@ namespace DangKyHocPhan.ViewModels
         public static ObservableCollection<HocPhanModel> hocPhanModels = new ObservableCollection<HocPhanModel>();
         public static ObservableCollection<ChiTietModel> chiTietModels = new ObservableCollection<ChiTietModel>();
         public static ObservableCollection<SinhVienModel> sinhVienModels = new ObservableCollection<SinhVienModel>();
-
+        public static ObservableCollection<LopModel> lopModels = new ObservableCollection<LopModel>();
+        public static ObservableCollection<GiangVienModel> giangvienModels = new ObservableCollection<GiangVienModel>();
+        public static ObservableCollection<ThuModel> thuModels = new ObservableCollection<ThuModel>();
+        public static ObservableCollection<TietModel> tietModels = new ObservableCollection<TietModel>();
         public static void CreateDatas()
         {
             hocKiModels.Add(new HocKiModel() { Id = 1, Name = "Học kì 1" });
@@ -376,15 +391,15 @@ namespace DangKyHocPhan.ViewModels
 
 
 
-            monHocModels.Add(new MonHocModel() { Id = 1, Stt = 1, MaMH = "42030000505", TenMonHoc = "Vật lí A1", SoTC = 2 });
-            monHocModels.Add(new MonHocModel() { Id = 2, Stt = 2, MaMH = "42030000506", TenMonHoc = "Logic học", SoTC = 2 });
-            monHocModels.Add(new MonHocModel() { Id = 3, Stt = 3, MaMH = "42030000507", TenMonHoc = "Tâm lý học đại cương", SoTC = 2 });
-            monHocModels.Add(new MonHocModel() { Id = 4, Stt = 4, MaMH = "42030000508", TenMonHoc = "Quản lý dự án CNTT", SoTC = 3 });
-            monHocModels.Add(new MonHocModel() { Id = 5, Stt = 5, MaMH = "42030000509", TenMonHoc = "Xây dựn phần mềm", SoTC = 3 });
-            monHocModels.Add(new MonHocModel() { Id = 6, Stt = 6, MaMH = "42030000500", TenMonHoc = "Lập trình Phân tán với công nghệ Java", SoTC = 3 });
-            monHocModels.Add(new MonHocModel() { Id = 7, Stt = 7, MaMH = "42030000511", TenMonHoc = "Lập trình Phân tán với công nghệ .NET", SoTC = 3 });
-            monHocModels.Add(new MonHocModel() { Id = 8, Stt = 8, MaMH = "42030000512", TenMonHoc = "Kiếm trúc hướng dịch vụ và Điện toán đám mây", SoTC = 4 });
-            monHocModels.Add(new MonHocModel() { Id = 9, Stt = 9, MaMH = "42030000513", TenMonHoc = "Công nghệ mới trong phát triển ứng dụng CNTT", SoTC = 3 });
+            monHocModels.Add(new MonHocModel() { Id = 1, Stt = 1, MaMH = "42030000505", TenMonHoc = "Vật lí A1", SoTC = 2 , TrangThai = 1 });
+            monHocModels.Add(new MonHocModel() { Id = 2, Stt = 2, MaMH = "42030000506", TenMonHoc = "Logic học", SoTC = 2 , TrangThai = 0});
+            monHocModels.Add(new MonHocModel() { Id = 3, Stt = 3, MaMH = "42030000507", TenMonHoc = "Tâm lý học đại cương", SoTC = 2, TrangThai = 1 });
+            monHocModels.Add(new MonHocModel() { Id = 4, Stt = 4, MaMH = "42030000508", TenMonHoc = "Quản lý dự án CNTT", SoTC = 3, TrangThai = 0 });
+            monHocModels.Add(new MonHocModel() { Id = 5, Stt = 5, MaMH = "42030000509", TenMonHoc = "Xây dựng phần mềm", SoTC = 3, TrangThai = 1 });
+            monHocModels.Add(new MonHocModel() { Id = 6, Stt = 6, MaMH = "42030000500", TenMonHoc = "Lập trình Phân tán với công nghệ Java", SoTC = 3, TrangThai = 1 });
+            monHocModels.Add(new MonHocModel() { Id = 7, Stt = 7, MaMH = "42030000511", TenMonHoc = "Lập trình Phân tán với công nghệ .NET", SoTC = 3, TrangThai = 1 });
+            monHocModels.Add(new MonHocModel() { Id = 8, Stt = 8, MaMH = "42030000512", TenMonHoc = "Kiếm trúc hướng dịch vụ và Điện toán đám mây", SoTC = 4, TrangThai = 0 });
+            monHocModels.Add(new MonHocModel() { Id = 9, Stt = 9, MaMH = "42030000513", TenMonHoc = "Công nghệ mới trong phát triển ứng dụng CNTT", SoTC = 3, TrangThai = 1 });
 
 
             hocPhanModels.Add(new HocPhanModel()
@@ -576,6 +591,12 @@ namespace DangKyHocPhan.ViewModels
                 ThoiGian = "01/01/2021-01/05/2021",
                 MaLopHocPhan = 7
             });
+
+            //sinhVienModels.Add(new SinhVienModel()
+            //{
+            //    Id = 1, 
+            //    Name = "Lương Thị Thu"
+            //});
         }
         #endregion
     }

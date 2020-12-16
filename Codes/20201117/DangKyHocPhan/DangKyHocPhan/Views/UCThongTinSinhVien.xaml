@@ -10,7 +10,7 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Image Width="180" Height="240" Margin="0 30 0 0" Stretch="UniformToFill" Source="C:\Users\dangq\Downloads\TwoWest.jpg"  VerticalAlignment="Top" />
+        <!--<Image Width="180" Height="240" Margin="0 30 0 0" Stretch="UniformToFill" Source="C:\Users\luong\Downloads\TwoWest.jpg"  VerticalAlignment="Top" />-->
         <!--<Image Width="150" Grid.Row="0" Source="D:\Download\20191005_124425.jpg" Grid.RowSpan="8" VerticalAlignment="Top"/>-->
         <Grid Grid.Column="1" >
             <Grid.ColumnDefinitions>

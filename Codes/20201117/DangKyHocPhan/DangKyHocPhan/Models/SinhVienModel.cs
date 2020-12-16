@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace DangKyHocPhan.Models
         public SinhVienModel()
         {
             IdMonHocs = new List<int>();
+            MonHocDaDangKyModels = new ObservableCollection<MonHocDaDangKyModel>();
         }
         public int Id { get; set; }
         public string Name { get; set; }
@@ -22,5 +24,6 @@ namespace DangKyHocPhan.Models
         public string Email { get; set; }
         public string Sdt { get; set; }
         public List<int> IdMonHocs { get; set; }
+        public ObservableCollection<MonHocDaDangKyModel> MonHocDaDangKyModels { get; set; }
     }
 }

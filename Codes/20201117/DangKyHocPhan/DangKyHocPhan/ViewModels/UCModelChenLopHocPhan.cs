@@ -391,6 +391,7 @@ namespace DangKyHocPhan.ViewModels
                         TenSinhVien = a.Name;
                         LopSinhVien = a.Lop;
                         IdSv = a.Id;
+                        LoadListMonHoc();
                     }
                     else
                     {
@@ -428,7 +429,12 @@ namespace DangKyHocPhan.ViewModels
                                 if (sv.IdMonHocs.FirstOrDefault(x=>x == item.Id)==0)
                                     MonHocList.Add(item);
                         }
+                    foreach (var item in sv.MonHocDaDangKyModels)
+                    {
+                        MonHocDaDangKyList.Add(item);
+                    }
                 }
+                
                 //if (HocKiSelect.Id == 1 && NamHocSelect.Id == 1)
                 //    foreach (var item in DataFree.monHocModels)
                 //    {
@@ -437,7 +443,7 @@ namespace DangKyHocPhan.ViewModels
                 //                MonHocList.Add(item);
                 //    }
             }
-            MonHocDaDangKyList = DataFree.monHocDaDangKyModels;
+            
         }
 
         private NamHocModel _namHocSelect;
@@ -525,34 +531,38 @@ namespace DangKyHocPhan.ViewModels
                 {
                     if (MonHocSelect != null && HocPhanSelect != null)
                     {
+                        var sv = DataFree.sinhVienModels.FirstOrDefault(x => x.Id == IdSv);
                         if (ChiTietList.Count == 0)
                         {
                             MessageBox.Show("Bạn chưa chọn môn học.\n Vui lòng chọn môn học trước khí đăng ký", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
-                        else if (ChiTietList.Count == 1)
+                        else if (ChiTietList.Count == 1&& ChiTietSelect!=null)
                         {
-                            //DataFree.monHocDaDangKyModels.Add(new MonHocDaDangKyModel()
-                            //{
-                            //    Id = DataFree.monHocDaDangKyModels.Count + 1,
-                            //    GiangVien = ChiTietSelect.GiangVien,
-                            //    MaHP = HocPhanSelect.MaLHP,
-                            //    SoTC = MonHocSelect.SoTC,
-                            //    STT = DataFree.monHocDaDangKyModels.Count + 1,
-                            //    TenMonHoc = MonHocSelect.TenMonHoc,
-                            //    TrangThai = HocPhanSelect.TrangThai,
-                            //    IdMonHoc = MonHocSelect.Id
-                            //});
+                            //DataFree.monHocDaDangKyModels.
                             //var monhoc = DataFree.monHocModels.FirstOrDefault(x => x.Id == MonHocSelect.Id);
                             //monhoc.TrangThaiDangKy = 1;
 
-                            var sv = DataFree.sinhVienModels.FirstOrDefault(x => x.Id == IdSv);
+
                             sv.IdMonHocs.Add(MonHocSelect.Id);
+                            sv.MonHocDaDangKyModels.Add(new MonHocDaDangKyModel()
+                            {
+                                Id = DataFree.monHocDaDangKyModels.Count + 1,
+                                GiangVien = ChiTietSelect.GiangVien,
+                                MaHP = HocPhanSelect.MaLHP,
+                                SoTC = MonHocSelect.SoTC,
+                                STT = DataFree.monHocDaDangKyModels.Count + 1,
+                                TenMonHoc = MonHocSelect.TenMonHoc,
+                                TrangThai = HocPhanSelect.TrangThai,
+                                IdMonHoc = MonHocSelect.Id
+                            });
                             MessageBox.Show("Đăng Ký Thành Công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
 
                         }
                         else if (NhomTHSelect != null)
                         {
-                            DataFree.monHocDaDangKyModels.Add(new MonHocDaDangKyModel()
+
+                            sv.IdMonHocs.Add(MonHocSelect.Id);
+                            sv.MonHocDaDangKyModels.Add(new MonHocDaDangKyModel()
                             {
                                 Id = DataFree.monHocDaDangKyModels.Count + 1,
                                 GiangVien = ChiTietSelect.GiangVien,
@@ -564,8 +574,20 @@ namespace DangKyHocPhan.ViewModels
                                 IdMonHoc = MonHocSelect.Id,
                                 NhomTH = NhomTHSelect
                             });
-                            var monhoc = DataFree.monHocModels.FirstOrDefault(x => x.Id == MonHocSelect.Id);
-                            monhoc.TrangThaiDangKy = 1;
+                            //DataFree.monHocDaDangKyModels.Add(new MonHocDaDangKyModel()
+                            //{
+                            //    Id = DataFree.monHocDaDangKyModels.Count + 1,
+                            //    GiangVien = ChiTietSelect.GiangVien,
+                            //    MaHP = HocPhanSelect.MaLHP,
+                            //    SoTC = MonHocSelect.SoTC,
+                            //    STT = DataFree.monHocDaDangKyModels.Count + 1,
+                            //    TenMonHoc = MonHocSelect.TenMonHoc,
+                            //    TrangThai = HocPhanSelect.TrangThai,
+                            //    IdMonHoc = MonHocSelect.Id,
+                            //    NhomTH = NhomTHSelect
+                            //});
+                            //var monhoc = DataFree.monHocModels.FirstOrDefault(x => x.Id == MonHocSelect.Id);
+                            //monhoc.TrangThaiDangKy = 1;
                             MessageBox.Show("Đăng Ký Thành Công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
 
                         }
@@ -575,8 +597,6 @@ namespace DangKyHocPhan.ViewModels
                         }
                     }
                     LoadListMonHoc();
-
-
                 });
 
             }

@@ -88,6 +88,29 @@ namespace DangKyHocPhan.ViewModels
             }
         }
 
+        private ObservableCollection<PhongModel> _phongList;
+        public ObservableCollection<PhongModel> PhongList
+        {
+            get { return _phongList; }
+            set
+            {
+                _phongList = value;
+                OnPropertyChanged("PhongList");
+            }
+        }
+        private PhongModel _phongSelect;
+        public PhongModel PhongSelect
+        {
+            get { return _phongSelect; }
+            set
+            {
+                _phongSelect = value;
+                OnPropertyChanged("PhongSelect");
+                //Load  List Mon Hoc
+                LoadListPhong();
+            }
+        }
+
         private ObservableCollection<NamHocModel> _namHocList;
         public ObservableCollection<NamHocModel> NamHocList
         {
@@ -307,6 +330,14 @@ namespace DangKyHocPhan.ViewModels
            
         }
 
+        public void LoadListPhong()
+        {
+            
+            PhongList = DataFree.phongModels;
+            PhongSelect = PhongList.FirstOrDefault();
+
+
+        }
         public void LoadListHocPhan()
         {
             HocPhanList = new ObservableCollection<HocPhanModel>();

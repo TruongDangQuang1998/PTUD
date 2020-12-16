@@ -395,6 +395,8 @@ namespace DangKyHocPhan.ViewModels
         public static ObservableCollection<GiangVienModel> giangvienModels = new ObservableCollection<GiangVienModel>();
         public static ObservableCollection<ThuModel> thuModels = new ObservableCollection<ThuModel>();
         public static ObservableCollection<TietModel> tietModels = new ObservableCollection<TietModel>();
+        public static ObservableCollection<PhongModel> phongModels = new ObservableCollection<PhongModel>();
+
         public static void CreateDatas()
         {
             hocKiModels.Add(new HocKiModel() { Id = 1, Name = "Học kì 1" });

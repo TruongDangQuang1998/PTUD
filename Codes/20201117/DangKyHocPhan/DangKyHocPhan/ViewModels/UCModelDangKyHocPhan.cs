@@ -18,9 +18,9 @@ namespace DangKyHocPhan.ViewModels
         private IDataBaseService _dataBaseService;
         public UCModelDangKyHocPhan()
         {
-            _dataBaseService = new DataBaseService();
-            _context = new Context();
-            _context = _dataBaseService.GetContext();
+            //_dataBaseService = new DataBaseService();
+            //_context = new Context();
+            //_context = _dataBaseService.GetContext();
             //LoadData();
             LoadHocKi();
         }
@@ -85,6 +85,26 @@ namespace DangKyHocPhan.ViewModels
             {
                 _nhomTHSelect = value;
                 OnPropertyChanged("NhomTHSelect");
+            }
+        }
+        private ObservableCollection<MonHocDaDangKyModel> _monHocDaDangKyList;
+        public ObservableCollection<MonHocDaDangKyModel> MonHocDaDangKyList
+        {
+            get { return _monHocDaDangKyList; }
+            set
+            {
+                _monHocDaDangKyList = value;
+                OnPropertyChanged("MonHocDaDangKyList");
+            }
+        }
+        private MonHocDaDangKyModel _monHocDaDangKySelect;
+        public MonHocDaDangKyModel MonHocDaDangKySelect
+        {
+            get { return _monHocDaDangKySelect; }
+            set
+            {
+                _monHocDaDangKySelect = value;
+                OnPropertyChanged("MonHocDaDangKySelect");
             }
         }
         private ObservableCollection<MonHocModel> _monHocList;
@@ -160,37 +180,22 @@ namespace DangKyHocPhan.ViewModels
 
             NamHocList = DataFree.namHocModels;
             NamHocSelect = NamHocList.FirstOrDefault();
-
-            //var hockis = _context.HocKys;
-            //var namhocs = _context.NamHocs;
-            //var listHocKi = new ObservableCollection<HocKiModel>();
-            //var listNamHoc = new ObservableCollection<NamHocModel>();
-            //foreach (var item in hockis)
-            //{
-            //    listHocKi.Add(new HocKiModel() { Id = item.MaHocKy, Name = item.TenHocKy });
-            //}
-            //foreach (var item in namhocs)
-            //{
-            //    listNamHoc.Add(new NamHocModel() { Id = item.MaNamHoc, Name = item.TenNamHoc });
-            //}
-            //HocKiList = listHocKi;
-            //HocKiSelect = listHocKi.FirstOrDefault();
-            //NamHocList = listNamHoc;
-            //NamHocSelect = listNamHoc.FirstOrDefault();
         }
         
         public void LoadListMonHoc()
         {
+            MonHocDaDangKyList = new ObservableCollection<MonHocDaDangKyModel>();
             MonHocList = new ObservableCollection<MonHocModel>();
-            if(HocKiSelect!=null&& NamHocSelect!=null)
+            if (HocKiSelect != null && NamHocSelect != null)
             {
                 if (HocKiSelect.Id == 1 && NamHocSelect.Id == 1)
                     foreach (var item in DataFree.monHocModels)
                     {
-                        if(MonHocList!=null)
-                        MonHocList.Add(item);
-                    }
+                        if (MonHocList != null)
+                            if (item.TrangThaiDangKy == 0)
+                                MonHocList.Add(item);                    }
             }
+            MonHocDaDangKyList = DataFree.monHocDaDangKyModels;
         }
 
         public void LoadListHocPhan()
@@ -206,32 +211,29 @@ namespace DangKyHocPhan.ViewModels
                         HocPhanList.Add(item);
                 }
             }
-
-
-            //if (HocPhanList != null)
-            //    HocPhanList.Clear();
-
-            //ObservableCollection<HocPhanModel> hocPhans = new ObservableCollection<HocPhanModel>();
-            //var lophocphan = _context.LopHocPhans.Where(x => x.MonHocHocPhan.Id == MonHocSelect.Id);
-            //foreach (var item in lophocphan)
-            //{
-            //    hocPhans.Add(new HocPhanModel()
-            //    {
-            //        Stt = hocPhans.Count + 1,
-            //        DaDangKy = item.SiSoDaDangKy.ToString(),
-            //        Lop = item.MaLopHocPhan.ToString(),
-            //        MaLHP = item.MaLopHocPhan.ToString(),
-            //        Id = item.Id,
-            //        SiSoToiDa = item.SiSoToiDa.ToString(),
-            //        TenLopHocPhan = item.TenLopHocPhan,
-            //        TrangThai = item.TrangThai
-            //    }) ;
-            //}
-            //HocPhanList = hocPhans;
         }
 
         public void LoadChiTietHocPhan()
         {
+            ChiTietList = new ObservableCollection<ChiTietModel>();
+            NhomTHList = new ObservableCollection<string>();
+            if (HocPhanSelect != null)
+            {
+                foreach (var item in DataFree.chiTietModels)
+                {
+                    if (HocPhanSelect.Id == item.MaLopHocPhan)
+                    {
+                        ChiTietList.Add(item);
+                    }
+                    if (!string.IsNullOrEmpty(item.NhomTH))
+                    {
+                        NhomTHList.Add(item.NhomTH);
+                        NhomTHSelect = NhomTHList.FirstOrDefault();
+                    }
+                }
+            }
+
+            
             //if (ChiTietList != null)
             //    ChiTietList.Clear();
             //ObservableCollection<ChiTietModel> chiTiets = new ObservableCollection<ChiTietModel>();
@@ -245,20 +247,20 @@ namespace DangKyHocPhan.ViewModels
         }
         public void LoadNhomThucHanh(int hocPhanId)
         {
-            if (NhomTHList != null)
-                NhomTHList.Clear();
-            var list2 = new ObservableCollection<string>();
-            if(hocPhanId == 1 || hocPhanId == 3 || hocPhanId == 5 || hocPhanId == 5)
-            {
-                list2.Add("1");
-                list2.Add("2");
-            }
-            if (hocPhanId == 2 || hocPhanId ==  4|| hocPhanId == 6 || hocPhanId == 8)
-            {
-                list2.Add("1");
-            }
-            NhomTHList = list2;
-            NhomTHSelect = list2.FirstOrDefault();
+            //if (NhomTHList != null)
+            //    NhomTHList.Clear();
+            //var list2 = new ObservableCollection<string>();
+            //if(hocPhanId == 1 || hocPhanId == 3 || hocPhanId == 5 || hocPhanId == 5)
+            //{
+            //    list2.Add("1");
+            //    list2.Add("2");
+            //}
+            //if (hocPhanId == 2 || hocPhanId ==  4|| hocPhanId == 6 || hocPhanId == 8)
+            //{
+            //    list2.Add("1");
+            //}
+            //NhomTHList = list2;
+            //NhomTHSelect = list2.FirstOrDefault();
         }
         public void LoadData()
         {
@@ -284,17 +286,17 @@ namespace DangKyHocPhan.ViewModels
             //hocPhans.Add(new HocPhanModel() { Stt = 3, MaLHP = "345678", TenLopHocPhan = "Lop345", Lop = "DHKTPM13B", SiSoToiDa = "80", DaDangKy = "50", TrangThai = "Chờ Sinh Viên Đăng Ký" });
             //HocPhanList = hocPhans;
             
-            ObservableCollection<ChiTietModel> chiTiets = new ObservableCollection<ChiTietModel>();
-            chiTiets.Add(new ChiTietModel() { Stt = 1, GiangVien = "Nguyễn Văn A", LichHoc = "LT-Thứ 2 (T6-T8)", NhomTH = "", Phong = "A1.1", ThoiGian = "15/08/2020-15/11/2020" });
-            chiTiets.Add(new ChiTietModel() { Stt = 2, GiangVien = "Nguyễn Văn A", LichHoc = "TH-Thứ 4 (T1-T6)", NhomTH = "1", Phong = "B11.1", ThoiGian = "15/08/2020-15/11/2020" });
-            chiTiets.Add(new ChiTietModel() { Stt = 3, GiangVien = "Nguyễn Văn B", LichHoc = "TH-Thứ 4 (T1-T6)", NhomTH = "2", Phong = "B11.2", ThoiGian = "15/08/2020-15/11/2020" });
-            ChiTietList = chiTiets;
+            //ObservableCollection<ChiTietModel> chiTiets = new ObservableCollection<ChiTietModel>();
+            //chiTiets.Add(new ChiTietModel() { Stt = 1, GiangVien = "Nguyễn Văn A", LichHoc = "LT-Thứ 2 (T6-T8)", NhomTH = "", Phong = "A1.1", ThoiGian = "15/08/2020-15/11/2020" });
+            //chiTiets.Add(new ChiTietModel() { Stt = 2, GiangVien = "Nguyễn Văn A", LichHoc = "TH-Thứ 4 (T1-T6)", NhomTH = "1", Phong = "B11.1", ThoiGian = "15/08/2020-15/11/2020" });
+            //chiTiets.Add(new ChiTietModel() { Stt = 3, GiangVien = "Nguyễn Văn B", LichHoc = "TH-Thứ 4 (T1-T6)", NhomTH = "2", Phong = "B11.2", ThoiGian = "15/08/2020-15/11/2020" });
+            //ChiTietList = chiTiets;
 
-            var list2 = new ObservableCollection<string>();
-            list2.Add("1");
-            list2.Add("2");
-            NhomTHList = list2;
-            NhomTHSelect = list2.FirstOrDefault();
+            //var list2 = new ObservableCollection<string>();
+            //list2.Add("1");
+            //list2.Add("2");
+            //NhomTHList = list2;
+            //NhomTHSelect = list2.FirstOrDefault();
         }
         #endregion
 
@@ -306,7 +308,92 @@ namespace DangKyHocPhan.ViewModels
             {
                 return new RelayCommand(obj =>
                 {
-                    MessageBox.Show("Đăng Ký Thành Công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (MonHocSelect != null && HocPhanSelect != null )
+                    {
+                        if(ChiTietList.Count == 0)
+                        {
+                            MessageBox.Show("Bạn chưa chọn môn học.\n Vui lòng chọn môn học trước khí đăng ký", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        else if (ChiTietList.Count == 1)
+                        {
+                            DataFree.monHocDaDangKyModels.Add(new MonHocDaDangKyModel()
+                            {
+                                Id = DataFree.monHocDaDangKyModels.Count + 1,
+                                GiangVien = ChiTietSelect.GiangVien,
+                                MaHP = HocPhanSelect.MaLHP,
+                                SoTC = MonHocSelect.SoTC,
+                                STT = DataFree.monHocDaDangKyModels.Count + 1,
+                                TenMonHoc = MonHocSelect.TenMonHoc,
+                                TrangThai = HocPhanSelect.TrangThai,
+                                IdMonHoc = MonHocSelect.Id
+                            });
+                            var monhoc = DataFree.monHocModels.FirstOrDefault(x => x.Id == MonHocSelect.Id);
+                            monhoc.TrangThaiDangKy = 1;
+                            MessageBox.Show("Đăng Ký Thành Công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        }
+                        else if(NhomTHSelect!=null)
+                        {
+                            DataFree.monHocDaDangKyModels.Add(new MonHocDaDangKyModel()
+                            {
+                                Id = DataFree.monHocDaDangKyModels.Count + 1,
+                                GiangVien = ChiTietSelect.GiangVien,
+                                MaHP = HocPhanSelect.MaLHP,
+                                SoTC = MonHocSelect.SoTC,
+                                STT = DataFree.monHocDaDangKyModels.Count + 1,
+                                TenMonHoc = MonHocSelect.TenMonHoc,
+                                TrangThai = HocPhanSelect.TrangThai,
+                                IdMonHoc = MonHocSelect.Id,
+                                NhomTH = NhomTHSelect
+                            }) ;
+                            var monhoc = DataFree.monHocModels.FirstOrDefault(x => x.Id == MonHocSelect.Id);
+                            monhoc.TrangThaiDangKy = 1;
+                            MessageBox.Show("Đăng Ký Thành Công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Bạn chưa chọn Nhóm Thực hành", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                    }
+                    LoadListMonHoc();
+
+
+                });
+
+            }
+        } 
+        public ICommand HyHocPhan
+        {
+            get
+            {
+                return new RelayCommand(obj =>
+                {
+                    
+                    if (MonHocDaDangKySelect!=null)
+                    {
+                        var a = MessageBox.Show($"Bạn muốn hủy học phần {MonHocDaDangKySelect.TenMonHoc}?", "Hủy học phần", MessageBoxButton.YesNo);
+                        if(a== MessageBoxResult.Yes)
+                        {
+                            if (MonHocDaDangKySelect.TrangThai != "Chấp nhận mở lớp")
+                            {
+                                var monhoc = DataFree.monHocModels.FirstOrDefault(x => x.Id == MonHocDaDangKySelect.IdMonHoc);
+                                monhoc.TrangThaiDangKy = 0;
+                                DataFree.monHocDaDangKyModels.Remove(MonHocDaDangKySelect);
+                                MonHocDaDangKyList.Remove(MonHocDaDangKySelect);
+                                MessageBox.Show("Hủy Thành Công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Môn học đang trong trạng thái chấp nhận mở lớp\n Không thể hủy?", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                            }
+                        }
+                        
+                        
+                        
+                    }
+
 
                 });
 

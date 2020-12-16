@@ -25,8 +25,8 @@ namespace DangKyHocPhan.ViewModels
         {
             DataFree.CreateDatas();
 
-            _dataBaseService = new DataBaseService();
-            _dataBaseService.CreateIfNotExistsDB();
+            //_dataBaseService = new DataBaseService();
+            //_dataBaseService.CreateIfNotExistsDB();
             //LoadedWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
             //{
             //    Isloaded = true;
@@ -257,6 +257,18 @@ namespace DangKyHocPhan.ViewModels
 
             }
         }
+        public ICommand ChenLopHocPhanCommand
+        {
+            get
+            {
+                return new RelayCommand(obj =>
+                {
+
+                    UCShow = "ChenLopHocPhan";
+                });
+
+            }
+        }
         #endregion
 
         #region Methods
@@ -341,6 +353,10 @@ namespace DangKyHocPhan.ViewModels
                         VisibilityExpander = "QuanLy";
                         VisibilityLoginMain = "Main";
                     }
+                    else
+                    {
+                        MessageBox.Show("Tài khoản hoặc Mật khẩu không đúng", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 });
 
             }
@@ -362,6 +378,7 @@ namespace DangKyHocPhan.ViewModels
         public static ObservableCollection<HocPhanModel> hocPhanModels = new ObservableCollection<HocPhanModel>();
         public static ObservableCollection<ChiTietModel> chiTietModels = new ObservableCollection<ChiTietModel>();
         public static ObservableCollection<SinhVienModel> sinhVienModels = new ObservableCollection<SinhVienModel>();
+        public static ObservableCollection<MonHocDaDangKyModel> monHocDaDangKyModels = new ObservableCollection<MonHocDaDangKyModel>();
 
         public static void CreateDatas()
         {
@@ -376,15 +393,15 @@ namespace DangKyHocPhan.ViewModels
 
 
 
-            monHocModels.Add(new MonHocModel() { Id = 1, Stt = 1, MaMH = "42030000505", TenMonHoc = "Vật lí A1", SoTC = 2 });
-            monHocModels.Add(new MonHocModel() { Id = 2, Stt = 2, MaMH = "42030000506", TenMonHoc = "Logic học", SoTC = 2 });
-            monHocModels.Add(new MonHocModel() { Id = 3, Stt = 3, MaMH = "42030000507", TenMonHoc = "Tâm lý học đại cương", SoTC = 2 });
-            monHocModels.Add(new MonHocModel() { Id = 4, Stt = 4, MaMH = "42030000508", TenMonHoc = "Quản lý dự án CNTT", SoTC = 3 });
-            monHocModels.Add(new MonHocModel() { Id = 5, Stt = 5, MaMH = "42030000509", TenMonHoc = "Xây dựn phần mềm", SoTC = 3 });
-            monHocModels.Add(new MonHocModel() { Id = 6, Stt = 6, MaMH = "42030000500", TenMonHoc = "Lập trình Phân tán với công nghệ Java", SoTC = 3 });
-            monHocModels.Add(new MonHocModel() { Id = 7, Stt = 7, MaMH = "42030000511", TenMonHoc = "Lập trình Phân tán với công nghệ .NET", SoTC = 3 });
-            monHocModels.Add(new MonHocModel() { Id = 8, Stt = 8, MaMH = "42030000512", TenMonHoc = "Kiếm trúc hướng dịch vụ và Điện toán đám mây", SoTC = 4 });
-            monHocModels.Add(new MonHocModel() { Id = 9, Stt = 9, MaMH = "42030000513", TenMonHoc = "Công nghệ mới trong phát triển ứng dụng CNTT", SoTC = 3 });
+            monHocModels.Add(new MonHocModel() { TrangThaiDangKy=0, Id = 1, Stt = 1, MaMH = "42030000505", TenMonHoc = "Vật lí A1", SoTC = 2 });
+            monHocModels.Add(new MonHocModel() { TrangThaiDangKy=0,Id = 2, Stt = 2, MaMH = "42030000506", TenMonHoc = "Logic học", SoTC = 2 });
+            monHocModels.Add(new MonHocModel() { TrangThaiDangKy=0,Id = 3, Stt = 3, MaMH = "42030000507", TenMonHoc = "Tâm lý học đại cương", SoTC = 2 });
+            monHocModels.Add(new MonHocModel() { TrangThaiDangKy=0,Id = 4, Stt = 4, MaMH = "42030000508", TenMonHoc = "Quản lý dự án CNTT", SoTC = 3 });
+            monHocModels.Add(new MonHocModel() { TrangThaiDangKy=0,Id = 5, Stt = 5, MaMH = "42030000509", TenMonHoc = "Xây dựn phần mềm", SoTC = 3 });
+            monHocModels.Add(new MonHocModel() { TrangThaiDangKy=0,Id = 6, Stt = 6, MaMH = "42030000500", TenMonHoc = "Lập trình Phân tán với công nghệ Java", SoTC = 3 });
+            monHocModels.Add(new MonHocModel() { TrangThaiDangKy=0,Id = 7, Stt = 7, MaMH = "42030000511", TenMonHoc = "Lập trình Phân tán với công nghệ .NET", SoTC = 3 });
+            monHocModels.Add(new MonHocModel() { TrangThaiDangKy=0,Id = 8, Stt = 8, MaMH = "42030000512", TenMonHoc = "Kiếm trúc hướng dịch vụ và Điện toán đám mây", SoTC = 4 });
+            monHocModels.Add(new MonHocModel() { TrangThaiDangKy = 0, Id = 9, Stt = 9, MaMH = "42030000513", TenMonHoc = "Công nghệ mới trong phát triển ứng dụng CNTT", SoTC = 3 });
 
 
             hocPhanModels.Add(new HocPhanModel()
@@ -576,7 +593,26 @@ namespace DangKyHocPhan.ViewModels
                 ThoiGian = "01/01/2021-01/05/2021",
                 MaLopHocPhan = 7
             });
+
+
+            sinhVienModels.Add(new SinhVienModel() { Id = 1, MSSV = "11111111", ChuyenNganh = "Kỹ thuật Phần mềm", Name = "Nguyễn Văn A", Khoa="Công nghệ Thông tin", Lop="DHKTPM13B" });
+            sinhVienModels.Add(new SinhVienModel() { Id = 2, MSSV = "11111112", ChuyenNganh = "Kỹ thuật Phần mềm", Name = "Nguyễn Văn B", Khoa = "Công nghệ Thông tin", Lop = "DHKTPM13B" });
+            sinhVienModels.Add(new SinhVienModel() { Id = 3, MSSV = "11111113", ChuyenNganh = "Kỹ thuật Phần mềm", Name = "Nguyễn Văn C", Khoa = "Công nghệ Thông tin", Lop = "DHKTPM13B" });
+            sinhVienModels.Add(new SinhVienModel() { Id = 4, MSSV = "11111114", ChuyenNganh = "Kỹ thuật Phần mềm", Name = "Nguyễn Văn D", Khoa = "Công nghệ Thông tin", Lop = "DHKTPM13B" });
+            sinhVienModels.Add(new SinhVienModel() { Id = 5, MSSV = "11111115", ChuyenNganh = "Kỹ thuật Phần mềm", Name = "Nguyễn Văn R", Khoa = "Công nghệ Thông tin", Lop = "DHKTPM13B" });
+            sinhVienModels.Add(new SinhVienModel() { Id = 6, MSSV = "11111116", ChuyenNganh = "Kỹ thuật Phần mềm", Name = "Nguyễn Văn F", Khoa = "Công nghệ Thông tin", Lop = "DHKTPM13B" });
+            sinhVienModels.Add(new SinhVienModel() { Id = 7, MSSV = "11111117", ChuyenNganh = "Kỹ thuật Phần mềm", Name = "Nguyễn Văn G", Khoa = "Công nghệ Thông tin", Lop = "DHKTPM13B" });
+            sinhVienModels.Add(new SinhVienModel() { Id = 8, MSSV = "11111118", ChuyenNganh = "Kỹ thuật Phần mềm", Name = "Nguyễn Văn H", Khoa = "Công nghệ Thông tin", Lop = "DHKTPM13B" });
+            sinhVienModels.Add(new SinhVienModel() { Id = 9, MSSV = "11111119", ChuyenNganh = "Kỹ thuật Phần mềm", Name = "Nguyễn Văn J", Khoa = "Công nghệ Thông tin", Lop = "DHKTPM13B" });
+            sinhVienModels.Add(new SinhVienModel() { Id = 10, MSSV = "11111120", ChuyenNganh = "Kỹ thuật Phần mềm", Name = "Nguyễn Văn K", Khoa = "Công nghệ Thông tin", Lop = "DHKTPM13B" });
+            sinhVienModels.Add(new SinhVienModel() { Id = 11, MSSV = "11111121", ChuyenNganh = "Kỹ thuật Phần mềm", Name = "Nguyễn Văn L", Khoa = "Công nghệ Thông tin", Lop = "DHKTPM13B" });
+            sinhVienModels.Add(new SinhVienModel() { Id = 12, MSSV = "11111122", ChuyenNganh = "Kỹ thuật Phần mềm", Name = "Nguyễn Văn M", Khoa = "Công nghệ Thông tin", Lop = "DHKTPM13B" });
+
         }
+
+
+
+
         #endregion
     }
 }

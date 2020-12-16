@@ -13,5 +13,6 @@ namespace DangKyHocPhan.Models
         public string MaMH { get; set; }
         public string TenMonHoc { get; set; }
         public int SoTC { get; set; }
+        public int TrangThaiDangKy { get; set; }
     }
 }

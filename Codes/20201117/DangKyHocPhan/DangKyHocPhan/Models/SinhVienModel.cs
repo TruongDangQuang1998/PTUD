@@ -8,6 +8,10 @@ namespace DangKyHocPhan.Models
 {
     public class SinhVienModel
     {
+        public SinhVienModel()
+        {
+            IdMonHocs = new List<int>();
+        }
         public int Id { get; set; }
         public string Name { get; set; }
         public string MSSV { get; set; }
@@ -17,6 +21,6 @@ namespace DangKyHocPhan.Models
         public string DiaChi { get; set; }
         public string Email { get; set; }
         public string Sdt { get; set; }
-
+        public List<int> IdMonHocs { get; set; }
     }
 }

@@ -314,7 +314,7 @@ namespace DangKyHocPhan.ViewModels
                         {
                             MessageBox.Show("Bạn chưa chọn môn học.\n Vui lòng chọn môn học trước khí đăng ký", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
-                        else if (ChiTietList.Count == 1)
+                        else if (ChiTietList.Count == 1 && ChiTietSelect!=null)
                         {
                             DataFree.monHocDaDangKyModels.Add(new MonHocDaDangKyModel()
                             {
@@ -332,7 +332,7 @@ namespace DangKyHocPhan.ViewModels
                             MessageBox.Show("Đăng Ký Thành Công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
 
                         }
-                        else if(NhomTHSelect!=null)
+                        else if(NhomTHSelect!=null && ChiTietSelect != null)
                         {
                             DataFree.monHocDaDangKyModels.Add(new MonHocDaDangKyModel()
                             {
@@ -382,7 +382,7 @@ namespace DangKyHocPhan.ViewModels
                                 DataFree.monHocDaDangKyModels.Remove(MonHocDaDangKySelect);
                                 MonHocDaDangKyList.Remove(MonHocDaDangKySelect);
                                 MessageBox.Show("Hủy Thành Công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                                LoadListMonHoc();
                             }
                             else
                             {

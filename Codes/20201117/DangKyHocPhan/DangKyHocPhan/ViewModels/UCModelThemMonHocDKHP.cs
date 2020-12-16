@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace DangKyHocPhan.ViewModels
@@ -34,7 +35,7 @@ namespace DangKyHocPhan.ViewModels
                     //c.
                     //b.UCShow = "ThemMonHocDKHP";
                     //var a = MainWindow.GetWindow(obj);
-                    //MessageBox.Show("Đăng Ký Thành Công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var a=MessageBox.Show("Đăng Ký Thành Công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 });
 

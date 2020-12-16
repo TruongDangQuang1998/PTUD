@@ -102,6 +102,7 @@
     <Compile Include="Models\GiangVienModel.cs" />
     <Compile Include="Models\HocKiModel.cs" />
     <Compile Include="Models\HocPhanModel.cs" />
+    <Compile Include="Models\LopModel.cs" />
     <Compile Include="Models\MonHocDaDangKyModel.cs" />
     <Compile Include="Models\MonHocModel.cs" />
     <Compile Include="Models\NamHocModel.cs" />

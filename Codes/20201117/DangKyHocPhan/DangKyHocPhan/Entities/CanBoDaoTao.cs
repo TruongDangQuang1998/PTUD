@@ -11,7 +11,7 @@ namespace DangKyHocPhan.Entities
     public class CanBoDaoTao
     {
         [Key]
-        public int MaNV { get; set; }
+        public int MaCanBoDaoTao { get; set; }
         public string TenTaiKhoan { get; set; }
         public string ChucVu { get; set; }
 

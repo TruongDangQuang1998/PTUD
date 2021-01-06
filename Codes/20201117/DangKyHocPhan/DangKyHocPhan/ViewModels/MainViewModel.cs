@@ -25,18 +25,15 @@ namespace DangKyHocPhan.ViewModels
         {
             DataFree.CreateDatas();
 
-            //_dataBaseService = new DataBaseService();
-            //_dataBaseService.CreateIfNotExistsDB();
+            _dataBaseService = new DataBaseService();
+            _dataBaseService.CreateIfNotExistsDB();
             //LoadedWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
             //{
             //    Isloaded = true;
-            //LoginWD loginWindow = new LoginWD();
-            //loginWindow.ShowDialog();
+            //    LoginWD loginWindow = new LoginWD();
+            //    loginWindow.ShowDialog();
             //}
             //  );
-
-
-
             VisibilityLoginMain = "Login";
         }
 
@@ -317,7 +314,7 @@ namespace DangKyHocPhan.ViewModels
 
 
         #region Login
-        private string _username;
+        private string _username = "quanly";
         public string Username
         {
             get { return _username; }
@@ -373,12 +370,7 @@ namespace DangKyHocPhan.ViewModels
 
             }
         }
-        #endregion
-
-
-
-
-       
+        #endregion       
     }
     public static class DataFree
     {

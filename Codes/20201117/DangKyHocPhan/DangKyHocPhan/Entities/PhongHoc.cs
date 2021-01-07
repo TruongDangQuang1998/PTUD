@@ -13,6 +13,6 @@ namespace DangKyHocPhan.Entities
         public int MaPhongHoc { get; set; }
         public string TenPhong { get; set; }
         public int SoLuongPhong { get; set; }
-        public virtual ICollection<LopHocPhan> LopHocPhans { get; set; }
+        //public virtual ICollection<LopHocPhan> LopHocPhans { get; set; }
     }
 }

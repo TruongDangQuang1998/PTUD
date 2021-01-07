@@ -81,6 +81,7 @@
     <Compile Include="ConnectDB\DataBaseService.cs" />
     <Compile Include="ConnectDB\IDataBaseService.cs" />
     <Compile Include="Entities\CanBoDaoTao.cs" />
+    <Compile Include="Entities\ChiTietLopHocPhan.cs" />
     <Compile Include="Entities\ChuyenNganh.cs" />
     <Compile Include="Entities\GiangVien.cs" />
     <Compile Include="Entities\HocKy.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Entities\SinhVien.cs" />
     <Compile Include="Entities\SinhVien_MonHocHocPhan.cs" />
     <Compile Include="Entities\TaiKhoan.cs" />
+    <Compile Include="Entities\Thu.cs" />
     <Compile Include="Entities\TietHoc.cs" />
     <Compile Include="Models\ChiTietModel.cs" />
     <Compile Include="Models\ChuongTrinhKhungModel.cs" />
@@ -102,6 +104,7 @@
     <Compile Include="Models\GiangVienModel.cs" />
     <Compile Include="Models\HocKiModel.cs" />
     <Compile Include="Models\HocPhanModel.cs" />
+    <Compile Include="Models\KhoaModel.cs" />
     <Compile Include="Models\LopModel.cs" />
     <Compile Include="Models\MonHocDaDangKyModel.cs" />
     <Compile Include="Models\MonHocModel.cs" />

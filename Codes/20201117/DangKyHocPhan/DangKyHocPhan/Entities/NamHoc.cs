@@ -10,7 +10,7 @@ namespace DangKyHocPhan.Entities
     public class NamHoc
     {
         [Key]
-        public int MaNamHoc { get; set; }
+        public int NamHocId { get; set; }
         public string TenNamHoc { get; set; }
         public virtual ICollection<MonHocHocPhan> MonHocHocPhans { get; set; }
     }

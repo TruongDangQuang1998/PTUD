@@ -12,6 +12,6 @@ namespace DangKyHocPhan.Entities
         [Key]
         public int MaTietHoc { get; set; }
         public string TenTietHoc { get; set; }
-        public virtual LopHocPhan LopHocPhan { get; set; }
+        //public virtual LopHocPhan LopHocPhan { get; set; }
     }
 }

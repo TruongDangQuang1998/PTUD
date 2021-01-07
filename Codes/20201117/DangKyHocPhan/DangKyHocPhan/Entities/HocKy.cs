@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace DangKyHocPhan.Entities
 {
-    public class HocKy
+    public class HocKi
     {
         [Key]
-        public int MaHocKy { get; set; }
-        public string TenHocKy { get; set; }
+        public int HocKiId { get; set; }
+        public string TenHocKi { get; set; }
 
         public virtual ICollection<MonHocHocPhan> MonHocHocPhans { get; set; }
         

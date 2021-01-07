@@ -14,10 +14,11 @@ namespace DangKyHocPhan.Entities
         [Key]
         public int MaGiangVien { get; set; }
         public string TenTaiKhoan { get; set; }
+        public int MaChuyenNganh { get; set; }
         [Required, ForeignKey("TenTaiKhoan")]
         public virtual TaiKhoan TaiKhoan { get; set; }
         [Required]
         public virtual ChuyenNganh ChuyenNganh { get; set; }
-        public virtual ICollection<LopHocPhan> LopHocPhans { get; set; }
+        //public virtual ICollection<LopHocPhan> LopHocPhans { get; set; }
     }
 }

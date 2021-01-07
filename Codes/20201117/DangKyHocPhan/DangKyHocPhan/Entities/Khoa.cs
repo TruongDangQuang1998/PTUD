@@ -12,7 +12,7 @@ namespace DangKyHocPhan.Entities
         [Key]
         public int MaKhoa { get; set; }
         public string TenKhoa { get; set; }
-        public int SoLuong { get; set; }
+        //public int SoLuong { get; set; }
         public virtual ICollection<ChuyenNganh> ChuyenNganhs { get; set; }
     }
 }

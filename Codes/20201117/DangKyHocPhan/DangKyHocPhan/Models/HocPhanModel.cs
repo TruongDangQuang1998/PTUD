@@ -13,8 +13,8 @@ namespace DangKyHocPhan.Models
         public string MaLHP { get; set; }
         public string TenLopHocPhan { get; set; }
         public string Lop { get; set; }
-        public string SiSoToiDa { get; set; }
-        public string DaDangKy { get; set; }
+        public int SiSoToiDa { get; set; }
+        public int DaDangKy { get; set; }
         public string TrangThai { get; set; }
         public int MaMonHP { get; set; }
     }

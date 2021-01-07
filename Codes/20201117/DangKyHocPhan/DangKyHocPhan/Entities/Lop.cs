@@ -13,6 +13,7 @@ namespace DangKyHocPhan.Entities
         public int IdLop { get; set; }
         public string TenLop { get; set; }
         public int SiSo { get; set; }
+        public int MaChuyenNganh { get; set; }
         [Required]
         public virtual ChuyenNganh ChuyenNganh { get; set; }
     }

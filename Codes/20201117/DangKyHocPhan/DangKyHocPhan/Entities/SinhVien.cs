@@ -13,16 +13,17 @@ namespace DangKyHocPhan.Entities
         [Key]
         public int MaSoSinhVien { get; set; }
         public string TenTaiKhoan { get; set; }
-        public string Khoa { get; set; }
+        //public int MaKhoa { get; set; }
         public int NamHoc { get; set; }
-        public string HeDaoTao { get; set; }
+        public int MaChuyenNganh { get; set; }
+        public int MaLoaiDaoTao { get; set; }
         [Required, ForeignKey("TenTaiKhoan")]
         public virtual TaiKhoan TaiKhoan { get; set; }
         [Required]
         public virtual ChuyenNganh ChuyenNganh { get; set; }
         [Required]
         public virtual LoaiDaoTao LoaiDaoTao { get; set; }
-
+        //public virtual Khoa Khoa { get; set; }
         public virtual ICollection<SinhVien_MonHocHocPhan> SinhVien_MonHocHocPhans { get; set; }
     }
 }

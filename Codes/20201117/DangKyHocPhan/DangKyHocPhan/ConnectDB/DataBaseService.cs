@@ -22,9 +22,13 @@ namespace DangKyHocPhan.ConnectDB
                 context.Database.CreateIfNotExists();
             }
         }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+            
+        //}
         public Context GetContext()
         {
-            return new Context();
+            return context;
         }
         public DbSet<NamHoc> LoadNamHoc()
         {

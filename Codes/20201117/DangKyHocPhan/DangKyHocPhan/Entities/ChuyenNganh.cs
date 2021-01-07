@@ -12,9 +12,10 @@ namespace DangKyHocPhan.Entities
         [Key]
         public int MaChuyenNganh { get; set; }
         public string TenChuyenNganh { get; set; }
-        public int SoLuongLop { get; set; }
+        public int MaKhoa { get; set; }
+        //public int SoLuongLop { get; set; }
 
-        public virtual ICollection<Lop> Lops { get; set; }
+        //public virtual ICollection<Lop> Lops { get; set; }
         public virtual ICollection<SinhVien> SinhViens { get; set; }
         public virtual ICollection<GiangVien> GiangViens { get; set; }
         [Required]

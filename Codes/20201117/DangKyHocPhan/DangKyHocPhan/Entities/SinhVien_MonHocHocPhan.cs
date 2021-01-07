@@ -11,9 +11,19 @@ namespace DangKyHocPhan.Entities
     {
         [Key]
         public int Id { get; set; }
-        public string TrangThai { get; set; }
+        //0 not, 1 đã đăng ký
+        /// <summary>
+        /// 0 chưa dăng ký
+        /// 1 đã đăng ký
+        /// </summary>
+        public int TrangThai { get; set; }
+        public int MonHocHocPhanId { get; set; }
+        public int MaSoSinhVien { get; set; }
+        public int LopHocPhanId { get; set; }
+        public string ChiTietLopHocPhanIds { get; set; }
 
         public virtual SinhVien SinhVien { get; set; }
         public virtual MonHocHocPhan MonHocHocPhan { get; set; }
+        //public virtual LopHocPhan LopHocPhan { get; set; }
     }
 }

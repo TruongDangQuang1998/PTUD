@@ -28,7 +28,7 @@ namespace DangKyHocPhan.ViewModels
                 return new RelayCommand(obj =>
                 {
                     var ucThemMonHocDKHP = new UCThemMonHocDKHP();
-                    ucThemMonHocDKHP.ShowDialog();
+                    bool? v = ucThemMonHocDKHP.ShowDialog();
 
                     //var b = new MainViewModel();
                     //var c = new MainWindow();
@@ -288,11 +288,11 @@ namespace DangKyHocPhan.ViewModels
         #endregion
         public void LoadHocKi()
         {
-            HocKiList = DataFree.hocKiModels;
-            HocKiSelect = HocKiList.FirstOrDefault();
+            //HocKiList = DataFree.hocKiModels;
+            //HocKiSelect = HocKiList.FirstOrDefault();
 
-            NamHocList = DataFree.namHocModels;
-            NamHocSelect = NamHocList.FirstOrDefault();
+            //NamHocList = DataFree.namHocModels;
+            //NamHocSelect = NamHocList.FirstOrDefault();
 
             //var hockis = _context.HocKys;
             //var namhocs = _context.NamHocs;
@@ -324,8 +324,10 @@ namespace DangKyHocPhan.ViewModels
             //                MonHocList.Add(item);
             //        }
             //}
-            MonHocList = DataFree.monHocModels;
-            MonHocSelect = MonHocList.FirstOrDefault();
+
+
+            //MonHocList = DataFree.monHocModels;
+            //MonHocSelect = MonHocList.FirstOrDefault();
 
            
         }
@@ -333,24 +335,24 @@ namespace DangKyHocPhan.ViewModels
         public void LoadListPhong()
         {
             
-            PhongList = DataFree.phongModels;
-            PhongSelect = PhongList.FirstOrDefault();
+            //PhongList = DataFree.phongModels;
+            //PhongSelect = PhongList.FirstOrDefault();
 
 
         }
         public void LoadListHocPhan()
         {
-            HocPhanList = new ObservableCollection<HocPhanModel>();
-            if (HocPhanList != null)
-                HocPhanList.Clear();
-            if (MonHocSelect != null)
-            {
-                foreach (var item in DataFree.hocPhanModels)
-                {
-                    if (MonHocSelect.Id == item.MaMonHP)
-                        HocPhanList.Add(item);
-                }
-            }
+            //HocPhanList = new ObservableCollection<HocPhanModel>();
+            //if (HocPhanList != null)
+            //    HocPhanList.Clear();
+            //if (MonHocSelect != null)
+            //{
+            //    foreach (var item in DataFree.hocPhanModels)
+            //    {
+            //        if (MonHocSelect.Id == item.MaMonHP)
+            //            HocPhanList.Add(item);
+            //    }
+            //}
 
 
             //if (HocPhanList != null)
@@ -378,31 +380,35 @@ namespace DangKyHocPhan.ViewModels
         public void LoadListThu()
         {
 
-            ThuList = DataFree.thuModels;
-            ThuSelect = ThuList.FirstOrDefault();
+            //ThuList = DataFree.thuModels;
+            //ThuSelect = ThuList.FirstOrDefault();
         }
 
         public void LoadListTiet()
         {
 
-            TietList = DataFree.tietModels;
-            TietSelect = TietList.FirstOrDefault();
+            //TietList = DataFree.tietModels;
+            //TietSelect = TietList.FirstOrDefault();
         }
 
         public void LoadListLop()
         {
 
-            LopList = DataFree.lopModels;
-            LopSelect = LopList.FirstOrDefault();
+            //LopList = DataFree.lopModels;
+            //LopSelect = LopList.FirstOrDefault();
         }
         public void LoadListGiangVien()
         {
 
-            GiangVienList = DataFree.giangvienModels;
-            GiangVienSelect = GiangVienList.FirstOrDefault();
+            //GiangVienList = DataFree.giangvienModels;
+            //GiangVienSelect = GiangVienList.FirstOrDefault();
         }
         public void LoadChiTietHocPhan()
         {
+
+
+
+
             //if (ChiTietList != null)
             //    ChiTietList.Clear();
             //ObservableCollection<ChiTietModel> chiTiets = new ObservableCollection<ChiTietModel>();

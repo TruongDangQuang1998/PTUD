@@ -80,7 +80,7 @@
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="Mã HP" Width="200" Binding="{Binding MaHP}"/>
+                        <DataGridTextColumn Header="Mã HP" Width="200" Binding="{Binding MaMH}"/>
                         <DataGridTextColumn Header="Tên môn học" Width="200" Binding="{Binding TenMonHoc}" />
                         <DataGridTextColumn Header="Số TC" Width="200" Binding="{Binding SoTC}" />
                         <DataGridTextColumn Header="Môn điều kiện"  Width="200" Binding="{Binding TienQuyet}"/>
@@ -158,7 +158,7 @@
 
                 <DataGrid Grid.Row="11"  AutoGenerateColumns="False" IsReadOnly="True"  Margin="0 10 0 10" Name="lvMonHocDaDangKy" ItemsSource="{Binding MonHocDaDangKyList}"  SelectedItem="{Binding MonHocDaDangKySelect}" >
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="STT" Width="60" Binding="{Binding Stt}" >
+                        <DataGridTextColumn Header="STT" Width="60" Binding="{Binding STT}" >
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="HorizontalAlignment" Value="Center" />
@@ -167,8 +167,9 @@
                         </DataGridTextColumn>
                         <DataGridTextColumn Header="Mã HP" Width="200" Binding="{Binding MaHP}"/>
                         <DataGridTextColumn Header="Tên môn học" Width="200" Binding="{Binding TenMonHoc}" />
+                        <DataGridTextColumn Header="Nhóm TH" Width="100" Binding="{Binding NhomTH}" />
                         <DataGridTextColumn Header="Số TC" Width="200" Binding="{Binding SoTC}" />
-                        <DataGridTextColumn Header="GiangVien" Width="200" Binding="{Binding GiangVien}" />
+                        <!--<DataGridTextColumn Header="GiangVien" Width="200" Binding="{Binding GiangVien}" />-->
                         <DataGridTextColumn Header="Trạng thái"  Width="180" Binding="{Binding TrangThai}"/>
                     </DataGrid.Columns>
                 </DataGrid>

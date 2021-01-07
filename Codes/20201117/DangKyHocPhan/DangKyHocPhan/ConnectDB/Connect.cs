@@ -17,7 +17,7 @@ namespace DangKyHocPhan.ConnectDB
         public DbSet<CanBoDaoTao> CanBoDaoTaos { get; set; }
         public DbSet<ChuyenNganh> ChuyenNganhs { get; set; }
         public DbSet<GiangVien> GiangViens { get; set; }
-        public DbSet<HocKy> HocKys { get; set; }
+        public DbSet<HocKi> HocKis { get; set; }
         public DbSet<Khoa> Khoas { get; set; }
         public DbSet<LoaiDaoTao> LoaiDaoTaos { get; set; }
         public DbSet<Lop> Lops { get; set; }
@@ -30,5 +30,12 @@ namespace DangKyHocPhan.ConnectDB
         public DbSet<SinhVien_MonHocHocPhan> SinhVien_MonHocHocPhans { get; set; }
         public DbSet<TaiKhoan> TaiKhoans { get; set; }
         public DbSet<TietHoc> TietHocs { get; set; }
+        public DbSet<ChiTietLopHocPhan> ChiTietLopHocPhans { get; set; }
+        public DbSet<Thu> Thus { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<Context>(null);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

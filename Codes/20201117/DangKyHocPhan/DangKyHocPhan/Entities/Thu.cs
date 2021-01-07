@@ -10,7 +10,7 @@ namespace DangKyHocPhan.Entities
     public class Thu
     {
         [Key]
-        public int ThuId{get;set;}
-        public string TenThu { get; set; }
+        public int MaThuhoc{get;set;}
+        public string TenThuHoc { get; set; }
     }
 }
